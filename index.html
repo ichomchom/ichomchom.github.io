@@ -1,268 +1,307 @@
-<!DOCTYPE HTML>
-<html>
-	<head>
-		<title>Huey Phan's Website</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-    
-	</head>
-	<body class="is-preload">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Huey Phan • Portfolio</title>
+  <meta name="description" content="Huey Phan — software engineer & AI/ML practitioner. Projects in Go, React, Python, Salesforce, and deep learning." />
+  <meta property="og:title" content="Huey Phan • Portfolio" />
+  <meta property="og:description" content="Projects in Go, React, Python, Salesforce, and deep learning." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3aG1FQm6lSleqU9jwELyhlHLLJoPLD114F8CbnMD4PlzyBbs6k8ZZrVSu2CevulaHYkMg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    :root{
+      --bg:#0b1220; --panel:#0f172a; --soft:#111827; --muted:#8b95a7; --text:#e5e7eb; --brand:#60a5fa; --brand-2:#34d399; --chip:#1f2937; --card:#0b1220; --ring:rgba(96,165,250,.35)
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans",sans-serif;line-height:1.6}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{width:min(1100px,92%);margin-inline:auto}
+    .nav{position:sticky;top:0;background:linear-gradient(180deg,rgba(11,18,32,.9),rgba(11,18,32,.6) 60%,transparent);backdrop-filter:blur(8px);z-index:50}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;gap:10px;align-items:center;font-weight:700}
+    .brand .dot{width:12px;height:12px;border-radius:50%;background:linear-gradient(135deg,var(--brand),var(--brand-2))}
+    .nav a.link{opacity:.9;padding:8px 12px;border-radius:10px}
+    .nav a.link:hover{background:rgba(255,255,255,.06)}
 
-		<!-- Header -->
-			<section id="header">
-				<header>
-					<h1>Huey Phan</h1>
-					<p>Welcome to My Portfolio!</p>
-				</header>
-				<footer>
-					<a href="#banner" class="button style2 scrolly-middle">About Me</a>
-				</footer>
-			</section>
+    .hero{padding:72px 0 40px;display:grid;grid-template-columns:1.2fr .8fr;gap:28px}
+    @media (max-width:880px){.hero{grid-template-columns:1fr;}}
+    .hero h1{font-size:clamp(32px,5vw,48px);line-height:1.1;margin:.2rem 0 .6rem;font-weight:800}
+    .kicker{color:var(--brand);font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-size:.8rem}
+    .lead{color:#c9d3e0;font-size:1.05rem}
+    .cta{margin-top:18px;display:flex;gap:10px;flex-wrap:wrap}
+    .btn{padding:10px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.12);display:inline-flex;gap:10px;align-items:center;font-weight:600}
+    .btn.primary{background:linear-gradient(135deg,var(--brand),#7dd3fc);color:#0b1220;border-color:transparent;box-shadow:0 0 0 4px var(--ring)}
+    .btn:hover{transform:translateY(-1px)}
+    .card{background:linear-gradient(180deg,var(--panel),#0c1324);border:1px solid rgba(255,255,255,.06);border-radius:18px;overflow:hidden}
 
-		<!-- Banner -->
-			<section id="banner">
-				<header>
-					<h2>About Me</h2>
-				</header>
-				<p>Graduated with Bachelor of Science in Computer Science at California State University, San Bernardino. 
-					Currently working as Software Developer.
-          </br>
-          Interesting in Programming, Cyber Security and Game Development.
-          </br>
-        </p>
-				<footer>
-					<a href="#first" class="button style2 scrolly">My Projects</a>
-				</footer>
-			</section>
+    .section{padding:28px 0 12px}
+    .section h2{font-size:clamp(22px,3vw,28px);margin:0 0 14px}
+    .grid{display:grid;gap:14px}
+    .grid.cols-2{grid-template-columns:1fr 1fr}
+    .grid.cols-3{grid-template-columns:repeat(3,1fr)}
+    @media (max-width:880px){.grid.cols-2,.grid.cols-3{grid-template-columns:1fr}}
 
-		<!-- Feature 1 -->
-			<article id="first" class="container box style1 right">
-				<a href="https://arcane-ravine-32785.herokuapp.com/catalog" class="image fit"><img src="images/fs.png" alt="" /></a>
-				<div class="inner">
-					<header>
-						<h2>Inventory System</h2>
-					</header>
-					<p>Web Application built using Node.js, Express.js, Jade, MongoDB and host with Heroku. </br>
-          Used to keep track of items in the inventory for the Information Technology Consultant of Computer Science Department at California State University, San Bernardino.
+    .chips{display:flex;gap:8px;flex-wrap:wrap}
+    .chip{background:var(--chip);border:1px solid rgba(255,255,255,.06);padding:6px 10px;border-radius:999px;font-size:.85rem;color:#cbd5e1}
 
-          </p>
-				</div>
-			</article>
+    .proj{display:grid;grid-template-columns:160px 1fr;gap:14px;padding:14px}
+    @media (max-width:640px){.proj{grid-template-columns:1fr}}
+    .proj img{height:100%;object-fit:cover;border-radius:12px}
+    .proj h3{margin:.2rem 0 .4rem;font-size:1.05rem}
+    .proj p{margin:0;color:#cbd5e1}
+    .proj .tags{margin-top:8px}
 
-		<!-- Feature 2 -->
-			<article class="container box style1 left">
-				<a href="https://github.com/ichomchom/Trip-Mobile" class="image fit"><img src="images/android.jpg" alt="" /></a>
-				<div class="inner">
-					<header>
-						<h2>Trip Mobile App</h2>
-					</header>
-					<p>Android application built with Google Map API, Firebase database</p>
-				</div>
-			</article>
+    .timeline{display:grid;gap:10px}
+    .item{padding:14px}
+    .item h3{margin:.2rem 0}
+    .item .meta{color:var(--muted);font-size:.9rem}
 
-		<!-- Feature 3 -->
-			<article class="container box style1 right">
-				<a href="https://github.com/ichomchom/Flotsam" class="image fit"><img src="images/unity.png" alt="" /></a>
-				<div class="inner">
-					<header>
-						<h2>Flotsam</h2>
-					</header>
-					<p>Adventure/Arcade game built with Unity3D</p>
-				</div>
-			</article>
+    .footer{padding:32px 0 60px;color:#9aa8bd}
+    .social{display:flex;gap:12px}
+    .social a{padding:10px;border:1px solid rgba(255,255,255,.12);border-radius:12px}
 
-		<!-- Feature 4 -->
-			<article class="container box style1 left">
-				<a href="https://github.com/ichomchom/Indeed-Bot" class="image fit"><img src="images/bot.png" alt="" /></a>
-				<div class="inner">
-					<header>
-						<h2>Job Bot</h2>
-					</header>
-					<p>A bot to automately apply job for you. Work on Indeed, Angelist. Build with Selenium and Python</p>
-				</div>
-			</article>
+    .thumb{aspect-ratio:16/9;background:#0a0f1d;display:flex;align-items:center;justify-content:center;color:#90caf9;font-weight:700}
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <div class="brand"><span class="dot"></span> <span>Huey Phan</span></div>
+      <div>
+        <a class="link" href="#about">About</a>
+        <a class="link" href="#projects">Projects</a>
+        <a class="link" href="#ai">AI/ML</a>
+        <a class="link" href="#experience">Experience</a>
+        <a class="link" href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
 
-		<!-- Feature 5 -->
-			<article class="container box style1 right">
-				<a href="https://imgur-roulette--ichomchom.repl.co/" class="image fit"><img src="images/flask.jpg" alt="" /></a>
-				<div class="inner">
-					<header>
-						<h2>Imgur Roulette</h2>
-					</header>
-					<p>Simple Web Application using Python and Flask to get random images on imgur.</p>
-				</div>
-			</article>
+  <header class="container hero">
+    <div>
+      <p class="kicker">Software Engineer • AI/ML</p>
+      <h1>Building useful things with Go, React, and Machine Learning</h1>
+      <p class="lead">Programmer Analyst at Pasadena City College. I ship portals, APIs, data pipelines, and the occasional model. Currently finishing my M.S. in AI at UT Austin where I focus on deep learning and vision-language systems.</p>
+      <div class="cta">
+        <a class="btn primary" href="images/Resume.pdf" target="_blank" rel="noopener">
+          <i class="fa-solid fa-file"></i> Resume (PDF)
+        </a>
+        <a class="btn" href="https://github.com/ichomchom" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
+        <a class="btn" href="https://www.linkedin.com/in/huey-phan/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a>
+      </div>
+      <div style="margin-top:14px" class="chips">
+        <span class="chip">Go</span><span class="chip">React</span><span class="chip">Python</span><span class="chip">GraphQL</span><span class="chip">Docker</span><span class="chip">Oracle</span>
+      </div>
+    </div>
+    <div class="card" style="padding:16px;display:grid;align-content:center">
+      <div class="thumb">Your photo / logo</div>
+      <p style="margin:12px 0 0;color:#b8c4d9">Tip: replace the box above with a headshot or a logo (update <code>.thumb</code> with an <code>&lt;img src="images/you.jpg" alt="Huey"/&gt;</code>).</p>
+    </div>
+  </header>
 
-		<!-- Feature 6 -->
-			<article class="container box style1 left">
-				<a href="https://github.com/ichomchom/AzureAD-Scripts" class="image fit"><img src="images/azure.png" alt="" /></a>
-				<div class="inner">
-					<header>
-						<h2>Azure AD</h2>
-					</header>
-					<p>Some Python and PowerShell scripts to help with the automation in create users and group in AzureAD</p>
-				</div>
-			</article>
+  <main class="container">
+    <section id="about" class="section">
+      <h2>About</h2>
+      <div class="card" style="padding:16px">
+        <p>I design and build web applications end‑to‑end: React frontends, Go/Python backends, and data services that integrate with Oracle and Salesforce. I enjoy turning messy systems into clean APIs and dashboards that people actually use.</p>
+      </div>
+    </section>
 
-		<!-- Feature 7 -->
-			<article class="container box style1 right">
-				<a href="https://github.com/ichomchom/FlappyVR" class="image fit"><img src="images/unity.png" alt="" /></a>
-				<div class="inner">
-					<header>
-						<h2>Flappy Bird VR</h2>
-					</header>
-					<p>A remake of popuplar Flappy Bird game but in Virtual Reality.</p>
-				</div>
-			</article>
+    <section id="projects" class="section">
+      <h2>Featured Projects</h2>
+      <div class="grid cols-2">
+        <a class="card proj" href="https://pasadena.edu/" target="_blank" rel="noopener">
+          <img src="images/fs.png" alt="Class Search / Portal"/>
+          <div>
+            <h3>Class Search Portal & Staff/Student Hub</h3>
+            <p>React + Go middleware over vendor GraphQL/REST. Card‑based results with expand for details; filters that scroll with the cursor. Serving 20k+ users.</p>
+            <div class="tags chips"><span class="chip">Go</span><span class="chip">React</span><span class="chip">GraphQL</span><span class="chip">Oracle</span></div>
+          </div>
+        </a>
+        <a class="card proj" href="https://github.com/ichomchom" target="_blank" rel="noopener">
+          <img src="images/unity.png" alt="SuperTuxKart AI"/>
+          <div>
+            <h3>SuperTuxKart Computer Vision & Driving</h3>
+            <p>Built CNN/Transformer models for classification, segmentation, and detection; trained an autonomous driving agent that steers from pixels.</p>
+            <div class="tags chips"><span class="chip">PyTorch</span><span class="chip">CNN</span><span class="chip">Transformer</span><span class="chip">MLP</span></div>
+          </div>
+        </a>
+      </div>
 
-		<!-- Feature 8 -->
-			<article class="container box style1 left">
-				<a href="https://github.com/ichomchom/saveEmails" class="image fit"><img src="images/python.gif" alt="" /></a>
-				<div class="inner">
-					<header>
-						<h2>Save Emails</h2>
-					</header>
-					<p>A simple Python application with GUI using tkinter that help you to save numbers of recent emails that you sent out through outlook.</p>
-				</div>
-			</article>
+      <h2 style="margin-top:22px">More Projects</h2>
+      <div class="grid cols-3">
+        <a class="card proj" href="https://arcane-ravine-32785.herokuapp.com/catalog" target="_blank" rel="noopener">
+          <img src="images/fs.png" alt="Inventory System"/>
+          <div>
+            <h3>Inventory System</h3>
+            <p>Track IT assets for CS department; REST API + MongoDB; deployed on Heroku.</p>
+            <div class="tags chips"><span class="chip">Node</span><span class="chip">Express</span><span class="chip">MongoDB</span></div>
+          </div>
+        </a>
+        <a class="card proj" href="https://github.com/ichomchom/Trip-Mobile" target="_blank" rel="noopener">
+          <img src="images/android.jpg" alt="Trip Mobile"/>
+          <div>
+            <h3>Trip Mobile</h3>
+            <p>Android travel app with Google Maps and Firebase realtime DB.</p>
+            <div class="tags chips"><span class="chip">Android</span><span class="chip">Firebase</span></div>
+          </div>
+        </a>
+        <a class="card proj" href="https://github.com/ichomchom/Flotsam" target="_blank" rel="noopener">
+          <img src="images/unity.png" alt="Flotsam"/>
+          <div>
+            <h3>Flotsam</h3>
+            <p>Arcade adventure built in Unity3D.</p>
+            <div class="tags chips"><span class="chip">Unity</span></div>
+          </div>
+        </a>
+        <a class="card proj" href="https://github.com/ichomchom/Indeed-Bot" target="_blank" rel="noopener">
+          <img src="images/bot.png" alt="Job Bot"/>
+          <div>
+            <h3>Job Bot</h3>
+            <p>Automates job applications on multiple boards using Selenium.</p>
+            <div class="tags chips"><span class="chip">Python</span><span class="chip">Selenium</span></div>
+          </div>
+        </a>
+        <a class="card proj" href="https://imgur-roulette--ichomchom.repl.co/" target="_blank" rel="noopener">
+          <img src="images/flask.jpg" alt="Imgur Roulette"/>
+          <div>
+            <h3>Imgur Roulette</h3>
+            <p>Flask app for random image discovery.</p>
+            <div class="tags chips"><span class="chip">Python</span><span class="chip">Flask</span></div>
+          </div>
+        </a>
+        <a class="card proj" href="https://github.com/ichomchom/AzureAD-Scripts" target="_blank" rel="noopener">
+          <img src="images/azure.png" alt="Azure AD"/>
+          <div>
+            <h3>Azure AD Scripts</h3>
+            <p>Automation for user & group provisioning with Python and PowerShell.</p>
+            <div class="tags chips"><span class="chip">Azure</span><span class="chip">PowerShell</span></div>
+          </div>
+        </a>
+        <a class="card proj" href="https://github.com/ichomchom/FlappyVR" target="_blank" rel="noopener">
+          <img src="images/unity.png" alt="Flappy VR"/>
+          <div>
+            <h3>Flappy Bird VR</h3>
+            <p>VR re‑imagining of a classic using Unity.</p>
+            <div class="tags chips"><span class="chip">Unity</span><span class="chip">VR</span></div>
+          </div>
+        </a>
+        <a class="card proj" href="https://github.com/ichomchom/saveEmails" target="_blank" rel="noopener">
+          <img src="images/python.gif" alt="Save Emails"/>
+          <div>
+            <h3>Save Emails</h3>
+            <p>Tkinter app that logs your recent Outlook sent messages.</p>
+            <div class="tags chips"><span class="chip">Python</span><span class="chip">Tkinter</span></div>
+          </div>
+        </a>
+        <a class="card proj" href="https://github.com/ichomchom/DiskUsageScanWin" target="_blank" rel="noopener">
+          <img src="images/ps.jpg" alt="Disk Usage Scan"/>
+          <div>
+            <h3>Disk Usage Scan</h3>
+            <p>Win scripts to audit and trigger cleanups when storage > threshold.</p>
+            <div class="tags chips"><span class="chip">PowerShell</span></div>
+          </div>
+        </a>
+      </div>
+    </section>
 
-		<!-- Feature 9 -->
-			<article class="container box style1 right">
-				<a href="https://github.com/ichomchom/DiskUsageScanWin" class="image fit"><img src="images/ps.jpg" alt="" /></a>
-				<div class="inner">
-					<header>
-						<h2>Disk Usage Scan</h2>
-					</header>
-					<p>This is the simple script to get disk space of student. The script will automaticly launch WinDirStat to clean up disk space if students used more than 5 GB.</p>
-				</div>
-			</article>
+    <section id="ai" class="section">
+      <h2>UT Austin • AI/ML Coursework Highlights</h2>
+      <div class="grid cols-2">
+        <div class="card item">
+          <h3>Deep Learning</h3>
+          <div class="meta">CNN • Transformers • Attention • Pooling</div>
+          <ul>
+            <li>SuperTuxKart image <b>classification</b>, <b>segmentation</b>, and <b>object detection</b>.</li>
+            <li>Autonomous driving agent from pixels using CNN/Transformer/MLP.</li>
+            <li>Custom training loops, metrics, and augmentation pipelines.</li>
+          </ul>
+        </div>
+        <div class="card item">
+          <h3>Advanced Deep Learning</h3>
+          <div class="meta">Quantization • Flash‑Attention • LoRA • VQ • RAG • LLM/VLM • CLIP</div>
+          <ul>
+            <li>4‑bit quantization + LoRA‑Linear + FP16 for BigNet.</li>
+            <li>Autoregressive image generator trained from scratch (SuperTuxKart).</li>
+            <li>LLMs (SmolLM2) for unit conversions with ICL, SFT, and RFT.</li>
+            <li>Fine‑tuned a VLM and CLIP on the SuperTuxKart dataset.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-<!--
-      <section id="resume">
-			<article class="container box style3">
-        <header>
-        <h2>Resume</h2>
-        <object data="images/Resume.pdf" type="application/pdf" width="100%" height="100%"> 
-        <p>It appears you don't have a PDF plugin for this browser.
-        No biggie... you can <a href="images/Resume.pdf">click here to
-        download the PDF file.</a></p>  
-        </object>
-          <footer>
-					<a href="images/Resume.pdf" class="button style1">PDF Version</a>
-				</footer>
-        </header>
-      </article>
--->
-		<!-- Resume -->
-      <section id="resume">
-			<article class="container box style3">
-        <header>
-        <h2>Resume</h2>
-          <footer>
-					<a href="images/Resume.pdf" class="button style1">PDF Version</a>
-				</footer>
-<p><strong>Huey Phan</strong>
-  <br>
-  <a href="http://hueyphan.tk/">http://hueyphan.tk/</a> | phan.huey389@gmail.com | Pasadena, CA
-  <br>
-  <br><strong>LANGUAGES, FRAMEWORKS and TECHNOLOGIES</strong>
-  <br>- Java; Python; SQL; JavaScript; C++; C#; CSS; HTML; Bootstrap
-  <br>- Node.js; Django; Flask; Express.js; MongoDB; Firebase; Heroku, Unity3D
-  <br>&nbsp;- Git; Docker; Ansible; Shell Scripting; PowerShell; Samba AD/DC; FreeIPA
-</p>
-<p><strong>EMPLOYMENT</strong>
-  <br><strong>Software Developer</strong>
-  <br>Cloudsquare | Jan 2020 - Present
-  <br>· Develop, maintain, create, and improve validation rules, custom workflows, Visualforce pages, Apex customization, custom objects, fields, and formulas.
-  <br>· Develop or review development of test protocols for testing application before user acceptance. Review test results and direct further development.
-  <br>· Performing hands-on software development and testing.
-  <br>· Work with management, create and manage complex workflow rules, data validation, and triggers.
-  <br>· Create and manage custom objects, fields, formulas, validation rules, custom workflow, and approval processes.
-  <br>· Work Closely with Team Lead or Project Manager to develop solution in accordance to the system design.
-  <br>· Building face detection system using Raspberry Pi, TPU and TensorFlow. 	
-  <br><strong>Database Administrator</strong>
-  <br>ADR Services, Inc. | July 2018 – Jan 2020
-  <br>· Manage and maintain CRM database of cases, clients, contacts, and neutrals.
-  <br>· Entering data required for generating organizational disclosures.
-  <br>· Creating and enforcing policies for effective data management.
-  <br>· Improved the performance of the database by 60% by query optimization.
-  <br>· Troubleshooting data-related problems and authorize maintenance or modification.
-  <br>· Devising and implementing efficient and secure procedures for data handling and analysis with attention to all technical aspects.
-  <br>· Assisting with reports and data extraction when needed.
-</p>
-<p><strong>Junior System Administrator
-    <br>&nbsp;
-  </strong>California State University, San Bernardino | June 2017 – Dec 2017<strong>
-    <br>&nbsp;
-  </strong>· Performed computer troubleshooting and printer maintenance.
-  <br>· Maintained and repaired labs equipment.
-  <br>· Provided technical assistance and support to students/staff/faculty.
-  <br>· Researched unfamiliar technical issues and learn new software/hardware applications.
-  <br>· Developed Web Application using Node.js, Express.js and MongoDB.
-  <br>· Research and develop script for Ansible and Docker.
-  <br>· Installed and configured Samba Active Directory in Virtual Environment such as VMWare, KVM, VirtualBox.
-  <br>· Research and development of Ansible Playbook.
-  <br>· Installed, configured and deployed new workstations in computer labs.
-  <br>· Maintained workstations in computer labs using Clonezillla and FOG.
-  <br>· Developed scripts to automate tasks for Windows, Linux and MacOS.
-</p>
-<p><strong>TECHNICAL EXPERIENCE</strong>
-  <br><strong>Projects</strong>
-  <br><strong>Trip Mobile App </strong>(2017) – Java, Firebase, Google Map API
-  <br>· Practiced Agile and Scrum during course involving four members using Trello, Slack, and Github.
-  <br>· Played a key role in writing application logic using Android Studio and Android SDK.
-  <br>· Wrote technical specifications and reports for the application development process.
-  <br>· Participated in complete Software Development Life Cycle (SDLC) for proper analysis, development, testing, deployment and enhancement of the code.
-  <br>· Participate in fast-paced development cycles; have completed 100% of deadlines ahead of schedule.
-</p>
-<p><strong>Inventory System </strong>(2017) – ExpressJS, NodeJS, JavaScript, MongoDB, Jade, Bootstrap, Heroku
-    <br>&nbsp;
-  · Lead team of three to develop web application and android application to keep track of electronic devices in the CS Department.
-  <br>· Created a RESTful API using NodeJS and ExpressJS for the web app and android app.
-  <br>· Full stack development with JavaScript and MongoDB for database.
-  <br>· Using Heroku to deploy and host the web app.
-</p>
-<p><strong>Job Bot </strong>(2019) – Python, Selenium Webdriver, Chromedriver
-  <br>· Developed a bot to automate apply job on the online job boards such as Indeed, Monster, and Angelist.
-</p>
-<p><strong>Imgur Roulette</strong> (2019) – Flask, Python
-    <br>&nbsp;
-  · Web Application to get random images on imgur.com based on user input.</p>
-<p><strong>EDUCATION</strong>
-  <br>California State University, San Bernardino, 2017
-  <br>· Bachelor of Science in Computer Science
-</p>
-<p><strong>&nbsp;</strong></p>
-<p><strong>&nbsp;</strong></p>
-        </header>
-      </article>
+    <section id="experience" class="section">
+      <h2>Experience</h2>
+      <div class="timeline grid">
+        <div class="card item">
+          <h3>Programmer Analyst • Pasadena City College</h3>
+          <div class="meta">Sep 2021 – Present • Pasadena, CA</div>
+          <ul>
+            <li>Led React + GraphQL portal used by 20k+ students and staff.</li>
+            <li>Designed Go middleware for vendor APIs; improved throughput and reliability.</li>
+            <li>Streamlined Oracle data workflows; measurable performance gains.</li>
+          </ul>
+        </div>
+        <div class="card item">
+          <h3>Software Developer • Cloudsquare</h3>
+          <div class="meta">Jan 2020 – Sep 2021</div>
+          <ul>
+            <li>Built custom Salesforce apps (Apex, LWC, Visualforce).</li>
+            <li>Integrated Microsoft Graph, CLEAR, Plaid, Experian, Equifax.</li>
+            <li>Prototype: Raspberry Pi + TPU face detection system.</li>
+          </ul>
+        </div>
+        <div class="card item">
+          <h3>Database Administrator • ADR Services, Inc.</h3>
+          <div class="meta">Jul 2018 – Jan 2020 • Los Angeles, CA</div>
+          <ul>
+            <li>Improved DB performance by ~60% with indexing and query tuning.</li>
+            <li>Governance policies; BI reporting & data extraction.</li>
+          </ul>
+        </div>
+        <div class="card item">
+          <h3>Junior System Administrator • CSU San Bernardino</h3>
+          <div class="meta">Jun 2017 – Dec 2017</div>
+          <ul>
+            <li>Linux/Unix admin; automation via Ansible and Docker.</li>
+            <li>Built Node/Express/Mongo tools for lab operations.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
- 
-<!-- Footer -->
-		<section id="footer">
-			<ul class="icons">
-				<li><a href="https://github.com/ichomchom" class="icon brands fa-github"><span class="label">Github</span></a></li>
-				<li><a href="https://www.linkedin.com/in/huey-phan/" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-        <li><a href="mailto:phan.huey389@gmail.com"    class="fa fa-envelope"></span></a></li>
-			</ul>
-      
-			<div class="copyright">
-				<ul class="menu">
-					<li>&copy; Huey Phan</li>
-				</ul>
-			</div>
-		</section>
+    <section id="contact" class="section">
+      <h2>Contact</h2>
+      <div class="card" style="padding:16px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap">
+        <div class="chips">
+          <a class="chip" href="mailto:phan.huey389@gmail.com"><i class="fa-solid fa-envelope"></i>&nbsp; phan.huey389@gmail.com</a>
+          <a class="chip" href="https://github.com/ichomchom" target="_blank" rel="noopener"><i class="fab fa-github"></i>&nbsp; github.com/ichomchom</a>
+          <a class="chip" href="https://www.linkedin.com/in/huey-phan/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i>&nbsp; LinkedIn</a>
+        </div>
+        <a class="btn primary" href="images/Resume.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-arrow-down"></i> Download Resume</a>
+      </div>
+    </section>
+  </main>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/jquery.poptrox.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+  <footer class="footer container">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+      <small>© <span id="y"></span> Huey Phan</small>
+      <div class="social">
+        <a href="https://github.com/ichomchom" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/huey-phan/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="mailto:phan.huey389@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+      </div>
+    </div>
+  </footer>
 
-	</body>
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
 </html>
