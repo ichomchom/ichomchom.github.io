@@ -192,49 +192,50 @@
     </section>
 
     <section id="ai" class="section">
-      <h2>UT Austin • AI/ML Coursework Highlights</h2>
+      <h2>UT Austin • AI/ML Coursework</h2>
       <div class="grid cols-2">
         <div class="card item">
           <h3>Deep Learning</h3>
-          <div class="meta">CNN • Transformers • Attention • Pooling</div>
+          <div class="meta">CNN • Transformers • Self-Attention • Vision</div>
           <ul>
-            <li>SuperTuxKart image <b>classification</b>, <b>segmentation</b>, and <b>object detection</b>.</li>
-            <li>Autonomous driving agent from pixels using CNN/Transformer/MLP.</li>
-            <li>Custom training loops, metrics, and augmentation pipelines.</li>
+            <li><b>Image Classification:</b> Linear, MLP, deep residual networks on SuperTuxKart (80%+ accuracy).</li>
+            <li><b>Semantic Segmentation & Depth Estimation:</b> U-Net-style encoder-decoder with skip connections (75+ IoU, <0.05 MAE).</li>
+            <li><b>Autonomous Driving Agent:</b> MLP/Transformer/CNN planners predicting waypoints from lane boundaries or raw images.</li>
+            <li>Custom training loops, TensorBoard logging, data augmentation pipelines.</li>
           </ul>
         </div>
         <div class="card item">
-          <h3>Advanced Deep Learning</h3>
-          <div class="meta">Quantization • Flash‑Attention • LoRA • VQ • RAG • LLM/VLM • CLIP</div>
+          <h3>Advances in Deep Learning</h3>
+          <div class="meta">Quantization • LoRA • Generative Models • VLM • CLIP</div>
           <ul>
-            <li>4‑bit quantization + LoRA‑Linear + FP16 for BigNet.</li>
-            <li>Autoregressive image generator trained from scratch (SuperTuxKart).</li>
-            <li>LLMs (SmolLM2) for unit conversions with ICL, SFT, and RFT.</li>
-            <li>Fine‑tuned a VLM and CLIP on the SuperTuxKart dataset.</li>
+            <li><b>Model Compression:</b> 4-bit quantization, half-precision (FP16), LoRA adapters, QLoRA (7x memory reduction).</li>
+            <li><b>Autoregressive Image Generation:</b> Binary Spherical Quantization (BSQ) + decoder-only Transformer for token-by-token image generation.</li>
+            <li><b>LLM Fine-tuning (SmolLM2):</b> In-context learning (ICL), supervised fine-tuning (SFT), rejection sampling fine-tuning (RFT) for unit conversions.</li>
+            <li><b>Vision-Language Models:</b> Fine-tuned VLM and CLIP on SuperTuxKart for multimodal Q&A (70%+ accuracy).</li>
           </ul>
         </div>
         <div class="card item">
           <h3>Natural Language Processing</h3>
           <div class="meta">Classical ML • Neural Networks • Transformers • Pre-trained Models</div>
           <ul>
-            <li>Built <b>Perceptron</b> and <b>Logistic Regression</b> from scratch for sentiment classification (77%+ accuracy).</li>
-            <li>Implemented <b>Deep Averaging Networks</b> with GloVe embeddings; handled typos via prefix embeddings and edit distance.</li>
-            <li>Custom <b>Transformer encoder</b> from scratch (self-attention, positional encodings); character-level LM achieving 6.3 perplexity.</li>
-            <li>Fact-checked ChatGPT outputs using <b>DeBERTa textual entailment</b> against Wikipedia (83%+ accuracy).</li>
-            <li>Fine-tuned <b>ELECTRA</b> on SNLI (89% accuracy) and SQuAD (78 EM, 86 F1).</li>
+            <li><b>Classical ML:</b> Perceptron & Logistic Regression from scratch with feature engineering (77%+ accuracy on sentiment classification).</li>
+            <li><b>Deep Averaging Networks:</b> GloVe embeddings + feedforward nets; robustness to typos via prefix embeddings (74%+ on corrupted text).</li>
+            <li><b>Transformers from Scratch:</b> Self-attention, positional encodings, causal masking for character-level language modeling (6.3 perplexity).</li>
+            <li><b>Fact-Checking:</b> DeBERTa textual entailment to verify ChatGPT outputs against Wikipedia (83%+ accuracy).</li>
+            <li><b>Fine-tuning ELECTRA:</b> SNLI (89% accuracy) and SQuAD (78 EM, 86 F1).</li>
           </ul>
         </div>
       </div>
 
       <div style="margin-top:20px">
+        <a class="btn" href="https://github.com/ichomchom/NLP" target="_blank" style="margin-right:10px">
+          <i class="fab fa-github"></i> NLP Portfolio
+        </a>
         <a class="btn" href="https://github.com/ichomchom/Deep-Learning" target="_blank" style="margin-right:10px">
-          <i class="fab fa-github"></i> Deep Learning Repository
+          <i class="fab fa-github"></i> Deep Learning
         </a>
         <a class="btn" href="https://github.com/ichomchom/Advances-In-Deep-Learning" target="_blank">
-          <i class="fab fa-github"></i> Advanced DL Repository
-        </a>
-        <a class="btn" href="https://github.com/ichomchom/Natural-Language-Processing" target="_blank" style="margin-right:10px">
-          <i class="fab fa-github"></i> Natural Language Processing Repository
+          <i class="fab fa-github"></i> Advances in DL
         </a>
       </div>
     </section>
