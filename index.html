@@ -1,303 +1,933 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Huey Phan • Portfolio</title>
-  <link rel="icon" href="/favicon.png" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" />
-  <style>
-    :root{
-      --bg:#0b1220; --panel:#0f172a; --muted:#8b95a7; --text:#e5e7eb; --brand:#60a5fa; --brand-2:#34d399; --chip:#1f2937; --ring:rgba(96,165,250,.35)
-    }
-    *{box-sizing:border-box}
-    body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,sans-serif;line-height:1.6}
-    a{color:inherit;text-decoration:none}
-    img{max-width:100%;display:block}
-    .container{width:min(1100px,92%);margin:auto}
-    .nav{position:sticky;top:0;background:rgba(11,18,32,.9);backdrop-filter:blur(8px);z-index:50}
-    .nav-inner{display:flex;justify-content:space-between;align-items:center;padding:14px 0}
-    .brand{display:flex;gap:10px;align-items:center;font-weight:700}
-    .brand .dot{width:12px;height:12px;border-radius:50%;background:linear-gradient(135deg,var(--brand),var(--brand-2))}
-    .nav a.link{padding:8px 12px;border-radius:10px}
-    .nav a.link:hover{background:rgba(255,255,255,.06)}
-    .hero{padding:72px 0 40px}
-    .hero h1{font-size:clamp(32px,5vw,48px);margin:.2rem 0 .6rem;font-weight:800}
-    .kicker{color:var(--brand);font-weight:600;text-transform:uppercase;font-size:.8rem}
-    .lead{color:#c9d3e0;font-size:1.05rem}
-    .cta{margin-top:18px;display:flex;gap:10px;flex-wrap:wrap}
-    .btn{padding:10px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.12);display:inline-flex;gap:10px;align-items:center;font-weight:600}
-    .btn.primary{background:linear-gradient(135deg,var(--brand),#7dd3fc);color:#0b1220;border-color:transparent;box-shadow:0 0 0 4px var(--ring)}
-    .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
-    .chip{background:var(--chip);border:1px solid rgba(255,255,255,.06);padding:6px 10px;border-radius:999px;font-size:.85rem;color:#cbd5e1}
-    .section{padding:28px 0 12px}
-    .section h2{font-size:clamp(22px,3vw,28px);margin-bottom:14px}
-    .grid{display:grid;gap:14px}
-    .grid.cols-2{grid-template-columns:1fr 1fr}
-    .grid.cols-3{grid-template-columns:repeat(3,1fr)}
-    @media (max-width:880px){.grid.cols-2,.grid.cols-3{grid-template-columns:1fr}}
-    .proj{display:grid;grid-template-columns:160px 1fr;gap:14px;padding:14px;background:var(--panel);border-radius:12px}
-    .proj img{border-radius:12px}
-    .proj h3{margin:.2rem 0 .4rem}
-    .tags{margin-top:8px}
-    .timeline{display:grid;gap:10px}
-    .item{padding:14px;background:var(--panel);border-radius:12px}
-    .item .meta{color:var(--muted);font-size:.9rem}
-    .footer{padding:32px 0 60px;color:#9aa8bd}
-    .social{display:flex;gap:12px}
-    .social a{padding:10px;border:1px solid rgba(255,255,255,.12);border-radius:12px}
-  </style>
-</head>
-<body>
-  <nav class="nav">
-    <div class="container nav-inner">
-      <div class="brand"><span class="dot"></span> <span>Huey Phan</span></div>
-      <div>
-        <a class="link" href="#about">About</a>
-        <a class="link" href="#projects">Projects</a>
-        <a class="link" href="#ai">AI/ML</a>
-        <a class="link" href="#experience">Experience</a>
-        <a class="link" href="#contact">Contact</a>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Huey Phan • Portfolio</title>
+    <link rel="icon" href="/favicon.png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      crossorigin="anonymous"
+    />
+    <style>
+      :root {
+        --bg: #0b1220;
+        --panel: #0f172a;
+        --muted: #8b95a7;
+        --text: #e5e7eb;
+        --brand: #60a5fa;
+        --brand-2: #34d399;
+        --chip: #1f2937;
+        --ring: rgba(96, 165, 250, 0.35);
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: Inter, sans-serif;
+        line-height: 1.6;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
+      .container {
+        width: min(1100px, 92%);
+        margin: auto;
+      }
+      .nav {
+        position: sticky;
+        top: 0;
+        background: rgba(11, 18, 32, 0.9);
+        backdrop-filter: blur(8px);
+        z-index: 50;
+      }
+      .nav-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 14px 0;
+      }
+      .brand {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        font-weight: 700;
+      }
+      .brand .dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--brand), var(--brand-2));
+      }
+      .nav a.link {
+        padding: 8px 12px;
+        border-radius: 10px;
+      }
+      .nav a.link:hover {
+        background: rgba(255, 255, 255, 0.06);
+      }
+      .hero {
+        padding: 72px 0 40px;
+      }
+      .hero h1 {
+        font-size: clamp(32px, 5vw, 48px);
+        margin: 0.2rem 0 0.6rem;
+        font-weight: 800;
+      }
+      .kicker {
+        color: var(--brand);
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+      }
+      .lead {
+        color: #c9d3e0;
+        font-size: 1.05rem;
+      }
+      .cta {
+        margin-top: 18px;
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .btn {
+        padding: 10px 14px;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        display: inline-flex;
+        gap: 10px;
+        align-items: center;
+        font-weight: 600;
+      }
+      .btn.primary {
+        background: linear-gradient(135deg, var(--brand), #7dd3fc);
+        color: #0b1220;
+        border-color: transparent;
+        box-shadow: 0 0 0 4px var(--ring);
+      }
+      .chips {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-top: 14px;
+      }
+      .chip {
+        background: var(--chip);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        padding: 6px 10px;
+        border-radius: 999px;
+        font-size: 0.85rem;
+        color: #cbd5e1;
+      }
+      .section {
+        padding: 40px 0 20px;
+      }
+      .section h2 {
+        font-size: clamp(24px, 3vw, 32px);
+        margin-bottom: 1.5rem;
+        font-weight: 700;
+      }
+      .grid {
+        display: grid;
+        gap: 1.25rem;
+      }
+      .grid.cols-2 {
+        grid-template-columns: 1fr 1fr;
+      }
+      .grid.cols-3 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      @media (max-width: 880px) {
+        .grid.cols-2,
+        .grid.cols-3 {
+          grid-template-columns: 1fr;
+        }
+      }
+      .proj {
+        display: grid;
+        grid-template-columns: 160px 1fr;
+        gap: 14px;
+        padding: 1.25rem;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 12px;
+        transition: all 0.3s ease;
+      }
+      .proj:hover {
+        transform: translateY(-3px);
+        border-color: rgba(96, 165, 250, 0.4);
+        box-shadow: 0 6px 20px rgba(74, 158, 255, 0.15);
+      }
+      .proj img {
+        border-radius: 12px;
+      }
+      .proj h3 {
+        margin: 0.2rem 0 0.4rem;
+      }
+      .tags {
+        margin-top: 8px;
+      }
+      .timeline {
+        display: grid;
+        gap: 1.25rem;
+      }
+      .item {
+        padding: 1.5rem;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 12px;
+        transition: all 0.3s ease;
+      }
+      .item:hover {
+        border-color: rgba(96, 165, 250, 0.3);
+        box-shadow: 0 4px 16px rgba(74, 158, 255, 0.1);
+      }
+      .item .meta {
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+      .footer {
+        padding: 32px 0 60px;
+        color: #9aa8bd;
+      }
+      .social {
+        display: flex;
+        gap: 12px;
+      }
+      .social a {
+        padding: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 12px;
+      }
+      .achievement-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin: 3rem 0;
+      }
+      .achievement-card {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        padding: 2rem;
+        transition: all 0.3s ease;
+      }
+      .achievement-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--brand);
+        box-shadow: 0 8px 24px rgba(74, 158, 255, 0.2);
+      }
+      .achievement-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+        padding-bottom: 1rem;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+      }
+      .achievement-header i {
+        font-size: 2rem;
+        color: var(--brand);
+      }
+      .achievement-header h3 {
+        margin: 0;
+        font-size: 1.3rem;
+        color: #fff;
+      }
+      .achievement-content {
+        color: rgba(255, 255, 255, 0.8);
+      }
+      .achievement-list {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 1.5rem 0;
+      }
+      .achievement-list li {
+        position: relative;
+        padding-left: 1.5rem;
+        margin-bottom: 1rem;
+        line-height: 1.6;
+      }
+      .achievement-list li:before {
+        content: "▹";
+        position: absolute;
+        left: 0;
+        color: var(--brand);
+        font-weight: bold;
+      }
+      .achievement-list strong {
+        color: #fff;
+        font-weight: 600;
+      }
+      .tech-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 1rem;
+      }
+      .tech-tags .chip {
+        background: rgba(74, 158, 255, 0.1);
+        color: var(--brand);
+        padding: 0.4rem 0.8rem;
+        border-radius: 4px;
+        font-size: 0.85rem;
+        border: 1px solid rgba(74, 158, 255, 0.2);
+      }
+      .course-details {
+        margin-top: 4rem;
+        padding: 2rem;
+        background: rgba(255, 255, 255, 0.02);
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+      }
+      .course-details h3 {
+        color: #fff;
+        margin-bottom: 1.5rem;
+        font-size: 1.5rem;
+      }
+      .course-list {
+        display: grid;
+        gap: 1.5rem;
+      }
+      .course-item {
+        padding: 1.5rem;
+        background: rgba(255, 255, 255, 0.03);
+        border-radius: 8px;
+        border-left: 3px solid var(--brand);
+      }
+      .course-item h4 {
+        color: #fff;
+        margin: 0 0 0.5rem 0;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .course-item h4 i {
+        color: var(--brand);
+      }
+      .course-item p {
+        color: rgba(255, 255, 255, 0.7);
+        margin: 0;
+        line-height: 1.6;
+      }
+      @media (max-width: 768px) {
+        .achievement-grid {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+        .achievement-card {
+          padding: 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav">
+      <div class="container nav-inner">
+        <div class="brand">
+          <span class="dot"></span> <span>Huey Phan</span>
+        </div>
+        <div>
+          <a class="link" href="#about">About</a>
+          <a class="link" href="#projects">Projects</a>
+          <a class="link" href="#ai">AI/ML</a>
+          <a class="link" href="#experience">Experience</a>
+          <a class="link" href="#contact">Contact</a>
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
 
-  <header class="container hero">
-    <p class="kicker">Software Engineer • AI/ML</p>
-    <h1>Building useful things with Go, React, and Machine Learning</h1>
-    <p class="lead">Programmer Analyst at Pasadena City College. I ship portals, APIs, data pipelines, and the occasional model. Currently finishing my M.S. in AI at UT Austin focusing on deep learning and vision-language systems.</p>
-    <div class="cta">
-      <a class="btn primary" href="images/HP_Resume.pdf" target="_blank"><i class="fa-solid fa-file"></i> Resume (PDF)</a>
-      <a class="btn" href="https://github.com/ichomchom" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-      <a class="btn" href="https://www.linkedin.com/in/huey-phan/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-    </div>
-    <div class="chips">
-      <span class="chip">Go</span><span class="chip">React</span><span class="chip">Python</span><span class="chip">GraphQL</span><span class="chip">Docker</span><span class="chip">Oracle</span>
-    </div>
-  </header>
-
-  <main class="container">
-    <section id="about" class="section">
-      <h2>About</h2>
-      <p>I design and build web applications end-to-end: React frontends, Go/Python backends, and data services that integrate with Oracle and Salesforce. I enjoy turning messy systems into clean APIs and dashboards that people actually use.</p>
-    </section>
-
-    <section id="projects" class="section">
-      <h2>Featured Projects</h2>
-      <div class="grid cols-2">
-        <a class="proj" href="https://findclasses.pasadena.edu/" target="_blank">
-          <img src="images/class.png" alt="Class Search Portal"/>
-          <div>
-            <h3>Class Search Portal & Hub</h3>
-            <p>React + Go middleware over vendor GraphQL/REST. Card-based results, filters that scroll with the cursor. Serving 40k+ users.</p>
-            <div class="tags chips"><span class="chip">Go</span><span class="chip">React</span><span class="chip">GraphQL</span></div>
-          </div>
-        </a>
-
-        <a class="proj" href="https://github.com/ichomchom/Deep-Learning" target="_blank">
-          <img src="images/transformer.gif" alt="SuperTuxKart AI"/>
-          <div>
-            <h3>SuperTuxKart AI</h3>
-            <p>Built CNN/Transformer models for classification, segmentation, detection; trained an autonomous driving agent.</p>
-            <div class="tags chips"><span class="chip">PyTorch</span><span class="chip">CNN</span><span class="chip">Transformer</span></div>
-          </div>
-        </a>
-
-        <a class="proj" href="https://github.com/ichomchom/Advances-In-Deep-Learning" target="_blank" rel="noopener">
-          <img src="https://raw.githubusercontent.com/ichomchom/Advances-In-Deep-Learning/master/Homework%202/gen_pos_2.png" alt="Autoregressive Image Generator output"/>
-          <div>
-            <h3>Autoregressive Image Generator</h3>
-            <p>Decoder-only Transformer that generates images token-by-token from a quantized codebook (BSQ/VQ). Trained end-to-end on SuperTuxKart frames.</p>
-            <div class="tags chips"><span class="chip">PyTorch</span><span class="chip">Transformer</span><span class="chip">Autoregressive</span></div>
-          </div>
-        </a>
+    <header class="container hero">
+      <p class="kicker">Software Engineer • AI/ML</p>
+      <h1>
+        Building useful things with Python, Go, React, and Machine Learning
+      </h1>
+      <p class="lead">
+        Programmer Analyst at Pasadena City College. I ship portals, APIs, data
+        pipelines, and the occasional model. Currently finishing my M.S. in AI
+        at UT Austin focusing on deep learning and vision-language systems.
+      </p>
+      <div class="cta">
+        <a class="btn primary" href="images/HP_Resume.pdf" target="_blank"
+          ><i class="fa-solid fa-file"></i> Resume (PDF)</a
+        >
+        <a class="btn" href="https://github.com/ichomchom" target="_blank"
+          ><i class="fab fa-github"></i> GitHub</a
+        >
+        <a
+          class="btn"
+          href="https://www.linkedin.com/in/huey-phan/"
+          target="_blank"
+          ><i class="fab fa-linkedin"></i> LinkedIn</a
+        >
       </div>
-
-      <h2 style="margin-top:22px">More Projects</h2>
-      <div class="grid cols-3">
-        <a class="card proj" href="https://arcane-ravine-32785.herokuapp.com/catalog" target="_blank" rel="noopener">
-          <img src="images/fs.png" alt="Inventory System"/>
-          <div>
-            <h3>Inventory System</h3>
-            <p>Track IT assets for CS department; REST API + MongoDB; deployed on Heroku.</p>
-            <div class="tags chips"><span class="chip">Node</span><span class="chip">Express</span><span class="chip">MongoDB</span></div>
-          </div>
-        </a>
-        <a class="card proj" href="https://github.com/ichomchom/Trip-Mobile" target="_blank" rel="noopener">
-          <img src="images/android.jpg" alt="Trip Mobile"/>
-          <div>
-            <h3>Trip Mobile</h3>
-            <p>Android travel app with Google Maps and Firebase realtime DB.</p>
-            <div class="tags chips"><span class="chip">Android</span><span class="chip">Firebase</span></div>
-          </div>
-        </a>
-        <a class="card proj" href="https://github.com/ichomchom/Flotsam" target="_blank" rel="noopener">
-          <img src="https://github.com/ichomchom/Flotsam/raw/master/flotsam.gif" alt="Flotsam"/>
-          <div>
-            <h3>Flotsam</h3>
-            <p>Arcade adventure built in Unity3D.</p>
-            <div class="tags chips"><span class="chip">Unity</span></div>
-          </div>
-        </a>
-        <a class="card proj" href="https://github.com/ichomchom/Indeed-Bot" target="_blank" rel="noopener">
-          <img src="images/bot.png" alt="Job Bot"/>
-          <div>
-            <h3>Job Bot</h3>
-            <p>Automates job applications on multiple boards using Selenium.</p>
-            <div class="tags chips"><span class="chip">Python</span><span class="chip">Selenium</span></div>
-          </div>
-        </a>
-        <a class="card proj" href="https://imgur-roulette--ichomchom.repl.co/" target="_blank" rel="noopener">
-          <img src="images/flask.jpg" alt="Imgur Roulette"/>
-          <div>
-            <h3>Imgur Roulette</h3>
-            <p>Flask app for random image discovery.</p>
-            <div class="tags chips"><span class="chip">Python</span><span class="chip">Flask</span></div>
-          </div>
-        </a>
-        <a class="card proj" href="https://github.com/ichomchom/AzureAD-Scripts" target="_blank" rel="noopener">
-          <img src="images/azure.png" alt="Azure AD"/>
-          <div>
-            <h3>Azure AD Scripts</h3>
-            <p>Automation for user & group provisioning with Python and PowerShell.</p>
-            <div class="tags chips"><span class="chip">Azure</span><span class="chip">PowerShell</span></div>
-          </div>
-        </a>
-        <a class="card proj" href="https://github.com/ichomchom/FlappyVR" target="_blank" rel="noopener">
-          <img src="https://github.com/ichomchom/FlappyVR/raw/master/57a304f80943f8849873ac992bd40445.gif" alt="Flappy VR"/>
-          <div>
-            <h3>Flappy Bird VR</h3>
-            <p>VR re‑imagining of a classic using Unity.</p>
-            <div class="tags chips"><span class="chip">Unity</span><span class="chip">VR</span></div>
-          </div>
-        </a>
-        <a class="card proj" href="https://github.com/ichomchom/saveEmails" target="_blank" rel="noopener">
-          <img src="images/python.gif" alt="Save Emails"/>
-          <div>
-            <h3>Save Emails</h3>
-            <p>Tkinter app that logs your recent Outlook sent messages.</p>
-            <div class="tags chips"><span class="chip">Python</span><span class="chip">Tkinter</span></div>
-          </div>
-        </a>
-        <a class="card proj" href="https://github.com/ichomchom/DiskUsageScanWin" target="_blank" rel="noopener">
-          <img src="images/ps.jpg" alt="Disk Usage Scan"/>
-          <div>
-            <h3>Disk Usage Scan</h3>
-            <p>Win scripts to audit and trigger cleanups when storage > threshold.</p>
-            <div class="tags chips"><span class="chip">PowerShell</span></div>
-          </div>
-        </a>
-      </div>
-    </section>
-
-    <section id="ai" class="section">
-      <h2>UT Austin • AI/ML Coursework</h2>
-      <div class="grid cols-2">
-        <div class="card item">
-          <h3>Deep Learning</h3>
-          <div class="meta">CNN • Transformers • Self-Attention • Vision</div>
-          <ul>
-            <li><b>Image Classification:</b> Linear, MLP, deep residual networks on SuperTuxKart (80%+ accuracy).</li>
-            <li><b>Semantic Segmentation & Depth Estimation:</b> U-Net-style encoder-decoder with skip connections (75+ IoU, <0.05 MAE).</li>
-            <li><b>Autonomous Driving Agent:</b> MLP/Transformer/CNN planners predicting waypoints from lane boundaries or raw images.</li>
-            <li>Custom training loops, TensorBoard logging, data augmentation pipelines.</li>
-          </ul>
-        </div>
-        <div class="card item">
-          <h3>Advances in Deep Learning</h3>
-          <div class="meta">Quantization • LoRA • Generative Models • VLM • CLIP</div>
-          <ul>
-            <li><b>Model Compression:</b> 4-bit quantization, half-precision (FP16), LoRA adapters, QLoRA (7x memory reduction).</li>
-            <li><b>Autoregressive Image Generation:</b> Binary Spherical Quantization (BSQ) + decoder-only Transformer for token-by-token image generation.</li>
-            <li><b>LLM Fine-tuning (SmolLM2):</b> In-context learning (ICL), supervised fine-tuning (SFT), rejection sampling fine-tuning (RFT) for unit conversions.</li>
-            <li><b>Vision-Language Models:</b> Fine-tuned VLM and CLIP on SuperTuxKart for multimodal Q&A (70%+ accuracy).</li>
-          </ul>
-        </div>
-        <div class="card item">
-          <h3>Natural Language Processing</h3>
-          <div class="meta">Classical ML • Neural Networks • Transformers • Pre-trained Models</div>
-          <ul>
-            <li><b>Classical ML:</b> Perceptron & Logistic Regression from scratch with feature engineering (77%+ accuracy on sentiment classification).</li>
-            <li><b>Deep Averaging Networks:</b> GloVe embeddings + feedforward nets; robustness to typos via prefix embeddings (74%+ on corrupted text).</li>
-            <li><b>Transformers from Scratch:</b> Self-attention, positional encodings, causal masking for character-level language modeling (6.3 perplexity).</li>
-            <li><b>Fact-Checking:</b> DeBERTa textual entailment to verify ChatGPT outputs against Wikipedia (83%+ accuracy).</li>
-            <li><b>Fine-tuning ELECTRA:</b> SNLI (89% accuracy) and SQuAD (78 EM, 86 F1).</li>
-          </ul>
-        </div>
-      </div>
-
-      <div style="margin-top:20px">
-        <a class="btn" href="https://github.com/ichomchom/NLP" target="_blank" style="margin-right:10px">
-          <i class="fab fa-github"></i> NLP Portfolio
-        </a>
-        <a class="btn" href="https://github.com/ichomchom/Deep-Learning" target="_blank" style="margin-right:10px">
-          <i class="fab fa-github"></i> Deep Learning
-        </a>
-        <a class="btn" href="https://github.com/ichomchom/Advances-In-Deep-Learning" target="_blank">
-          <i class="fab fa-github"></i> Advances in DL
-        </a>
-      </div>
-    </section>
-
-    <section id="experience" class="section">
-      <h2>Experience</h2>
-      <div class="timeline grid">
-        <div class="card item">
-          <h3>Programmer Analyst • Pasadena City College</h3>
-          <div class="meta">Sep 2021 – Present • Pasadena, CA</div>
-          <ul>
-            <li>Led React + GraphQL portal used by 40k+ students and staff.</li>
-            <li>Designed Go middleware for vendor APIs; improved throughput and reliability.</li>
-            <li>Streamlined Oracle data workflows; measurable performance gains.</li>
-          </ul>
-        </div>
-        <div class="card item">
-          <h3>Software Developer • Cloudsquare</h3>
-          <div class="meta">Jan 2020 – Sep 2021</div>
-          <ul>
-            <li>Built custom Salesforce apps (Apex, LWC, Visualforce).</li>
-            <li>Integrated Microsoft Graph, CLEAR, Plaid, Experian, Equifax.</li>
-            <li>Prototype: Raspberry Pi + TPU face detection system.</li>
-          </ul>
-        </div>
-        <div class="card item">
-          <h3>Database Administrator • ADR Services, Inc.</h3>
-          <div class="meta">Jul 2018 – Jan 2020 • Los Angeles, CA</div>
-          <ul>
-            <li>Improved DB performance by ~60% with indexing and query tuning.</li>
-            <li>Governance policies; BI reporting & data extraction.</li>
-          </ul>
-        </div>
-        <div class="card item">
-          <h3>Junior System Administrator • CSU San Bernardino</h3>
-          <div class="meta">Jun 2017 – Dec 2017</div>
-          <ul>
-            <li>Linux/Unix admin; automation via Ansible and Docker.</li>
-            <li>Built Node/Express/Mongo tools for lab operations.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="section">
-      <h2>Contact</h2>
       <div class="chips">
-        <a class="chip" href="mailto:phan.huey389@gmail.com"><i class="fa-solid fa-envelope"></i> Email</a>
-        <a class="chip" href="https://github.com/ichomchom" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-        <a class="chip" href="https://www.linkedin.com/in/huey-phan/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        <span class="chip">Go</span><span class="chip">React</span
+        ><span class="chip">Python</span><span class="chip">GraphQL</span
+        ><span class="chip">Docker</span><span class="chip">Oracle</span>
       </div>
-    </section>
-  </main>
+    </header>
 
-  <footer class="footer container">
-    <small>© <span id="y"></span> Huey Phan</small>
-    <div class="social">
-      <a href="https://github.com/ichomchom" target="_blank"><i class="fab fa-github"></i></a>
-      <a href="https://www.linkedin.com/in/huey-phan/" target="_blank"><i class="fab fa-linkedin"></i></a>
-    </div>
-  </footer>
+    <main class="container">
+      <section id="about" class="section">
+        <h2>About</h2>
+        <p>
+          I design and build web applications end-to-end: React frontends,
+          Go/Python backends, and data services that integrate with Oracle and
+          Salesforce. I enjoy turning messy systems into clean APIs and
+          dashboards that people actually use.
+        </p>
+      </section>
 
-  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
-</body>
+      <section id="projects" class="section">
+        <h2>Featured Projects</h2>
+        <div class="grid cols-2">
+          <a
+            class="proj"
+            href="https://findclasses.pasadena.edu/"
+            target="_blank"
+          >
+            <img src="images/class.png" alt="Class Search Portal" />
+            <div>
+              <h3>Class Search Portal & Hub</h3>
+              <p>
+                React + Go middleware over vendor GraphQL/REST. Card-based
+                results, filters that scroll with the cursor. Serving 40k+
+                users.
+              </p>
+              <div class="tags chips">
+                <span class="chip">Go</span><span class="chip">React</span
+                ><span class="chip">GraphQL</span>
+              </div>
+            </div>
+          </a>
+
+          <a
+            class="proj"
+            href="https://github.com/ichomchom/Deep-Learning"
+            target="_blank"
+          >
+            <img src="images/transformer.gif" alt="SuperTuxKart AI" />
+            <div>
+              <h3>SuperTuxKart AI</h3>
+              <p>
+                Built CNN/Transformer models for classification, segmentation,
+                detection; trained an autonomous driving agent.
+              </p>
+              <div class="tags chips">
+                <span class="chip">PyTorch</span><span class="chip">CNN</span
+                ><span class="chip">Transformer</span>
+              </div>
+            </div>
+          </a>
+
+          <a
+            class="proj"
+            href="https://github.com/ichomchom/Advances-In-Deep-Learning"
+            target="_blank"
+            rel="noopener"
+          >
+            <img
+              src="images/generation_22.gif"
+              alt="Autoregressive Image Generator output"
+            />
+            <div>
+              <h3>Autoregressive Image Generator</h3>
+              <p>
+                Decoder-only Transformer that generates images token-by-token
+                from a quantized codebook (BSQ/VQ). Trained end-to-end on
+                SuperTuxKart frames.
+              </p>
+              <div class="tags chips">
+                <span class="chip">PyTorch</span
+                ><span class="chip">Transformer</span
+                ><span class="chip">Autoregressive</span>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <h2 style="margin-top: 22px">More Projects</h2>
+        <div class="grid cols-3">
+          <a
+            class="card proj"
+            href="https://arcane-ravine-32785.herokuapp.com/catalog"
+            target="_blank"
+            rel="noopener"
+          >
+            <img src="images/fs.png" alt="Inventory System" />
+            <div>
+              <h3>Inventory System</h3>
+              <p>
+                Track IT assets for CS department; REST API + MongoDB; deployed
+                on Heroku.
+              </p>
+              <div class="tags chips">
+                <span class="chip">Node</span><span class="chip">Express</span
+                ><span class="chip">MongoDB</span>
+              </div>
+            </div>
+          </a>
+          <a
+            class="card proj"
+            href="https://github.com/ichomchom/Trip-Mobile"
+            target="_blank"
+            rel="noopener"
+          >
+            <img src="images/android.jpg" alt="Trip Mobile" />
+            <div>
+              <h3>Trip Mobile</h3>
+              <p>
+                Android travel app with Google Maps and Firebase realtime DB.
+              </p>
+              <div class="tags chips">
+                <span class="chip">Android</span
+                ><span class="chip">Firebase</span>
+              </div>
+            </div>
+          </a>
+          <a
+            class="card proj"
+            href="https://github.com/ichomchom/Flotsam"
+            target="_blank"
+            rel="noopener"
+          >
+            <img
+              src="https://github.com/ichomchom/Flotsam/raw/master/flotsam.gif"
+              alt="Flotsam"
+            />
+            <div>
+              <h3>Flotsam</h3>
+              <p>Arcade adventure built in Unity3D.</p>
+              <div class="tags chips"><span class="chip">Unity</span></div>
+            </div>
+          </a>
+          <a
+            class="card proj"
+            href="https://github.com/ichomchom/Indeed-Bot"
+            target="_blank"
+            rel="noopener"
+          >
+            <img src="images/bot.png" alt="Job Bot" />
+            <div>
+              <h3>Job Bot</h3>
+              <p>
+                Automates job applications on multiple boards using Selenium.
+              </p>
+              <div class="tags chips">
+                <span class="chip">Python</span
+                ><span class="chip">Selenium</span>
+              </div>
+            </div>
+          </a>
+          <a
+            class="card proj"
+            href="https://imgur-roulette--ichomchom.repl.co/"
+            target="_blank"
+            rel="noopener"
+          >
+            <img src="images/flask.jpg" alt="Imgur Roulette" />
+            <div>
+              <h3>Imgur Roulette</h3>
+              <p>Flask app for random image discovery.</p>
+              <div class="tags chips">
+                <span class="chip">Python</span><span class="chip">Flask</span>
+              </div>
+            </div>
+          </a>
+          <a
+            class="card proj"
+            href="https://github.com/ichomchom/AzureAD-Scripts"
+            target="_blank"
+            rel="noopener"
+          >
+            <img src="images/azure.png" alt="Azure AD" />
+            <div>
+              <h3>Azure AD Scripts</h3>
+              <p>
+                Automation for user & group provisioning with Python and
+                PowerShell.
+              </p>
+              <div class="tags chips">
+                <span class="chip">Azure</span
+                ><span class="chip">PowerShell</span>
+              </div>
+            </div>
+          </a>
+          <a
+            class="card proj"
+            href="https://github.com/ichomchom/FlappyVR"
+            target="_blank"
+            rel="noopener"
+          >
+            <img
+              src="https://github.com/ichomchom/FlappyVR/raw/master/57a304f80943f8849873ac992bd40445.gif"
+              alt="Flappy VR"
+            />
+            <div>
+              <h3>Flappy Bird VR</h3>
+              <p>VR re‑imagining of a classic using Unity.</p>
+              <div class="tags chips">
+                <span class="chip">Unity</span><span class="chip">VR</span>
+              </div>
+            </div>
+          </a>
+          <a
+            class="card proj"
+            href="https://github.com/ichomchom/saveEmails"
+            target="_blank"
+            rel="noopener"
+          >
+            <img src="images/python.gif" alt="Save Emails" />
+            <div>
+              <h3>Save Emails</h3>
+              <p>Tkinter app that logs your recent Outlook sent messages.</p>
+              <div class="tags chips">
+                <span class="chip">Python</span
+                ><span class="chip">Tkinter</span>
+              </div>
+            </div>
+          </a>
+          <a
+            class="card proj"
+            href="https://github.com/ichomchom/DiskUsageScanWin"
+            target="_blank"
+            rel="noopener"
+          >
+            <img src="images/ps.jpg" alt="Disk Usage Scan" />
+            <div>
+              <h3>Disk Usage Scan</h3>
+              <p>
+                Win scripts to audit and trigger cleanups when storage >
+                threshold.
+              </p>
+              <div class="tags chips"><span class="chip">PowerShell</span></div>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <section id="ai" class="section">
+        <h2>UT Austin • AI/ML Coursework</h2>
+        <p class="lead" style="margin-bottom: 2rem">
+          Graduate coursework covering deep learning, transformers, and NLP with
+          hands-on implementation experience
+        </p>
+
+        <div class="achievement-grid">
+          <!-- Transformers & LLMs -->
+          <div class="achievement-card">
+            <div class="achievement-header">
+              <i class="fas fa-brain"></i>
+              <h3>Transformers & LLMs</h3>
+            </div>
+            <div class="achievement-content">
+              <ul class="achievement-list">
+                <li>
+                  <strong>Built transformer from scratch</strong> for
+                  character-level classification (98% accuracy on letter
+                  counting task)
+                </li>
+                <li>
+                  <strong>Transformer language model</strong> achieving 6.3
+                  perplexity on text8 dataset with causal masking
+                </li>
+                <li>
+                  <strong>Fine-tuned SmolLM2 (1.7B)</strong> using LoRA for unit
+                  conversion with supervised fine-tuning (SFT) and rejection
+                  sampling fine-tuning (RFT)
+                </li>
+                <li>
+                  <strong>MLP & Transformer planners</strong> for autonomous
+                  driving in SuperTuxKart with learned query embeddings
+                </li>
+              </ul>
+              <div class="tech-tags">
+                <span class="chip">PyTorch</span>
+                <span class="chip">Attention</span>
+                <span class="chip">LoRA</span>
+                <span class="chip">HuggingFace</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Computer Vision -->
+          <div class="achievement-card">
+            <div class="achievement-header">
+              <i class="fas fa-eye"></i>
+              <h3>Computer Vision</h3>
+            </div>
+            <div class="achievement-content">
+              <ul class="achievement-list">
+                <li>
+                  <strong>CNN semantic segmentation</strong> with U-Net
+                  architecture achieving IoU > 0.75 for road boundary detection
+                </li>
+                <li>
+                  <strong>Multi-task learning</strong> for joint depth
+                  estimation (MAE < 0.05) and segmentation
+                </li>
+                <li>
+                  <strong>Vision-language models</strong> (VLM + CLIP) achieving
+                  70%+ accuracy on multi-modal QA tasks
+                </li>
+                <li>
+                  <strong>Autoregressive image generation</strong> using Binary
+                  Spherical Quantization (BSQ) with patch-level tokenization
+                </li>
+                <li>
+                  <strong>CNN planners</strong> for end-to-end autonomous
+                  driving from raw images to waypoint prediction
+                </li>
+              </ul>
+              <div class="tech-tags">
+                <span class="chip">CNNs</span>
+                <span class="chip">U-Net</span>
+                <span class="chip">CLIP</span>
+                <span class="chip">Multi-task</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Model Optimization -->
+          <div class="achievement-card">
+            <div class="achievement-header">
+              <i class="fas fa-microchip"></i>
+              <h3>Model Optimization</h3>
+            </div>
+            <div class="achievement-content">
+              <ul class="achievement-list">
+                <li>
+                  <strong>Low-precision training</strong> with half-precision
+                  (FP16) achieving 50% memory reduction
+                </li>
+                <li>
+                  <strong>LoRA adapters</strong> for parameter-efficient
+                  fine-tuning on large models
+                </li>
+                <li>
+                  <strong>4-bit quantization</strong> using block quantization
+                  achieving 7x memory reduction
+                </li>
+                <li>
+                  <strong>QLoRA implementation</strong> combining quantization
+                  with low-rank adaptation for efficient fine-tuning
+                </li>
+              </ul>
+              <div class="tech-tags">
+                <span class="chip">Quantization</span>
+                <span class="chip">LoRA</span>
+                <span class="chip">FP16/4-bit</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Classical ML & NLP -->
+          <div class="achievement-card">
+            <div class="achievement-header">
+              <i class="fas fa-language"></i>
+              <h3>Classical ML & NLP</h3>
+            </div>
+            <div class="achievement-content">
+              <ul class="achievement-list">
+                <li>
+                  <strong>Sentiment classification</strong> with perceptron
+                  (74%) and logistic regression (77%) using advanced feature
+                  engineering
+                </li>
+                <li>
+                  <strong>Deep averaging networks</strong> with GloVe embeddings
+                  achieving 77% accuracy on sentiment analysis
+                </li>
+                <li>
+                  <strong>Typo-robust inference</strong> using spelling
+                  correction and prefix embeddings (74% on corrupted text)
+                </li>
+                <li>
+                  <strong>Fact-checking system</strong> using DeBERTa for
+                  textual entailment on ChatGPT outputs (83% accuracy)
+                </li>
+                <li>
+                  <strong>Dataset artifact analysis</strong> identifying and
+                  mitigating spurious correlations in NLI/QA benchmarks
+                </li>
+              </ul>
+              <div class="tech-tags">
+                <span class="chip">Feature Eng</span>
+                <span class="chip">DeBERTa</span>
+                <span class="chip">NLI</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="course-details">
+          <h3>Course Information</h3>
+          <div class="course-list">
+            <div class="course-item">
+              <h4>
+                <i class="fas fa-graduation-cap"></i> Deep Learning (CS 342)
+              </h4>
+              <p>
+                MLPs, CNNs, residual networks, image classification, semantic
+                segmentation, depth estimation
+              </p>
+            </div>
+            <div class="course-item">
+              <h4>
+                <i class="fas fa-graduation-cap"></i> Advances in Deep Learning
+                (CS 395T)
+              </h4>
+              <p>
+                Memory-efficient training, quantization, LoRA, autoregressive
+                models, vision-language models, CLIP
+              </p>
+            </div>
+            <div class="course-item">
+              <h4>
+                <i class="fas fa-graduation-cap"></i> Natural Language
+                Processing (CS 388)
+              </h4>
+              <p>
+                Sentiment analysis, transformers, language modeling, textual
+                entailment, dataset artifacts, debiasing
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 20px">
+          <a
+            class="btn primary"
+            href="images/NLP_Final_Individual.pdf"
+            target="_blank"
+            style="margin-right: 10px"
+          >
+            <i class="fa-solid fa-file-pdf"></i> NLP Research Paper
+          </a>
+          <a
+            class="btn"
+            href="https://github.com/ichomchom/NLP"
+            target="_blank"
+            style="margin-right: 10px"
+          >
+            <i class="fab fa-github"></i> NLP Portfolio
+          </a>
+          <a
+            class="btn"
+            href="https://github.com/ichomchom/Deep-Learning"
+            target="_blank"
+            style="margin-right: 10px"
+          >
+            <i class="fab fa-github"></i> Deep Learning
+          </a>
+          <a
+            class="btn"
+            href="https://github.com/ichomchom/Advances-In-Deep-Learning"
+            target="_blank"
+          >
+            <i class="fab fa-github"></i> Advances in DL
+          </a>
+        </div>
+      </section>
+
+      <section id="experience" class="section">
+        <h2>Experience</h2>
+        <div class="timeline grid">
+          <div class="card item">
+            <h3>Programmer Analyst • Pasadena City College</h3>
+            <div class="meta">Sep 2021 – Present • Pasadena, CA</div>
+            <ul>
+              <li>
+                Led React + GraphQL portal used by 40k+ students and staff.
+              </li>
+              <li>
+                Designed Go middleware for vendor APIs; improved throughput and
+                reliability.
+              </li>
+              <li>
+                Streamlined Oracle data workflows; measurable performance gains.
+              </li>
+            </ul>
+          </div>
+          <div class="card item">
+            <h3>Software Developer • Cloudsquare</h3>
+            <div class="meta">Jan 2020 – Sep 2021</div>
+            <ul>
+              <li>Built custom Salesforce apps (Apex, LWC, Visualforce).</li>
+              <li>
+                Integrated Microsoft Graph, CLEAR, Plaid, Experian, Equifax.
+              </li>
+              <li>Prototype: Raspberry Pi + TPU face detection system.</li>
+            </ul>
+          </div>
+          <div class="card item">
+            <h3>Database Administrator • ADR Services, Inc.</h3>
+            <div class="meta">Jul 2018 – Jan 2020 • Los Angeles, CA</div>
+            <ul>
+              <li>
+                Improved DB performance by ~60% with indexing and query tuning.
+              </li>
+              <li>Governance policies; BI reporting & data extraction.</li>
+            </ul>
+          </div>
+          <div class="card item">
+            <h3>Junior System Administrator • CSU San Bernardino</h3>
+            <div class="meta">Jun 2017 – Dec 2017</div>
+            <ul>
+              <li>Linux/Unix admin; automation via Ansible and Docker.</li>
+              <li>Built Node/Express/Mongo tools for lab operations.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section">
+        <h2>Contact</h2>
+        <div class="chips">
+          <a class="chip" href="mailto:phan.huey389@gmail.com"
+            ><i class="fa-solid fa-envelope"></i> Email</a
+          >
+          <a class="chip" href="https://github.com/ichomchom" target="_blank"
+            ><i class="fab fa-github"></i> GitHub</a
+          >
+          <a
+            class="chip"
+            href="https://www.linkedin.com/in/huey-phan/"
+            target="_blank"
+            ><i class="fab fa-linkedin"></i> LinkedIn</a
+          >
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer container">
+      <small>© <span id="y"></span> Huey Phan</small>
+      <div class="social">
+        <a href="https://github.com/ichomchom" target="_blank"
+          ><i class="fab fa-github"></i
+        ></a>
+        <a href="https://www.linkedin.com/in/huey-phan/" target="_blank"
+          ><i class="fab fa-linkedin"></i
+        ></a>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById("y").textContent = new Date().getFullYear();
+    </script>
+  </body>
 </html>
