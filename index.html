@@ -4,6 +4,22 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Huey Phan • Portfolio</title>
+    <meta name="description" content="Software Engineer & AI/ML specialist building web applications and machine learning systems. Currently at Pasadena City College and pursuing M.S. in AI at UT Austin." />
+    <meta name="keywords" content="Software Engineer, AI, Machine Learning, Deep Learning, React, Go, Python, PyTorch, Transformers" />
+    <meta name="author" content="Huey Phan" />
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ichomchom.github.io/" />
+    <meta property="og:title" content="Huey Phan • Portfolio" />
+    <meta property="og:description" content="Software Engineer specializing in AI/ML, React, Go, and Python. Building web applications and deep learning systems." />
+    <meta property="og:site_name" content="Huey Phan Portfolio" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Huey Phan • Portfolio" />
+    <meta name="twitter:description" content="Software Engineer specializing in AI/ML, React, Go, and Python" />
+
     <link rel="icon" href="/favicon.png" />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
@@ -72,12 +88,71 @@
         border-radius: 50%;
         background: linear-gradient(135deg, var(--brand), var(--brand-2));
       }
+      .nav-links {
+        display: flex;
+        gap: 4px;
+      }
       .nav a.link {
         padding: 8px 12px;
         border-radius: 10px;
       }
       .nav a.link:hover {
         background: rgba(255, 255, 255, 0.06);
+      }
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 4px;
+        cursor: pointer;
+        padding: 8px;
+        border-radius: 8px;
+        background: transparent;
+        border: none;
+      }
+      .hamburger span {
+        width: 24px;
+        height: 2px;
+        background: var(--text);
+        transition: all 0.3s ease;
+        border-radius: 2px;
+      }
+      .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+      .hamburger.active span:nth-child(2) {
+        opacity: 0;
+      }
+      .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+      }
+      @media (max-width: 640px) {
+        .hamburger {
+          display: flex;
+        }
+        .nav-links {
+          position: fixed;
+          top: 60px;
+          left: 0;
+          right: 0;
+          background: var(--panel);
+          flex-direction: column;
+          padding: 20px;
+          gap: 8px;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+          transform: translateY(-100%);
+          opacity: 0;
+          visibility: hidden;
+          transition: all 0.3s ease;
+        }
+        .nav-links.active {
+          transform: translateY(0);
+          opacity: 1;
+          visibility: visible;
+        }
+        .nav a.link {
+          padding: 12px;
+          display: block;
+        }
       }
       .hero {
         padding: 72px 0 40px;
@@ -202,6 +277,11 @@
       .footer {
         padding: 32px 0 60px;
         color: #9aa8bd;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
       }
       .social {
         display: flex;
@@ -340,7 +420,12 @@
         <div class="brand">
           <span class="dot"></span> <span>Huey Phan</span>
         </div>
-        <div>
+        <button class="hamburger" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div class="nav-links">
           <a class="link" href="#about">About</a>
           <a class="link" href="#projects">Projects</a>
           <a class="link" href="#ai">AI/ML</a>
@@ -361,16 +446,17 @@
         at UT Austin focusing on deep learning and vision-language systems.
       </p>
       <div class="cta">
-        <a class="btn primary" href="images/HP_Resume.pdf" target="_blank"
+        <a class="btn primary" href="images/HP_Resume.pdf" target="_blank" rel="noopener noreferrer"
           ><i class="fa-solid fa-file"></i> Resume (PDF)</a
         >
-        <a class="btn" href="https://github.com/ichomchom" target="_blank"
+        <a class="btn" href="https://github.com/ichomchom" target="_blank" rel="noopener noreferrer"
           ><i class="fab fa-github"></i> GitHub</a
         >
         <a
           class="btn"
           href="https://www.linkedin.com/in/huey-phan/"
           target="_blank"
+          rel="noopener noreferrer"
           ><i class="fab fa-linkedin"></i> LinkedIn</a
         >
       </div>
@@ -390,6 +476,20 @@
           Salesforce. I enjoy turning messy systems into clean APIs and
           dashboards that people actually use.
         </p>
+        <p>
+          My approach combines practical software engineering with research-driven
+          machine learning. At Pasadena City College, I build production systems
+          serving tens of thousands of users. At UT Austin, I explore deep learning
+          architectures, from transformers to vision-language models to implementing
+          papers and experimenting with novel approaches.
+        </p>
+        <p>
+          What excites me most is the intersection: applying ML research to real
+          problems, optimizing models for production constraints, and building
+          systems that make complex technology accessible. Whether it's fine-tuning
+          a language model with LoRA or designing a GraphQL middleware layer, I
+          focus on solutions that work reliably at scale.
+        </p>
       </section>
 
       <section id="projects" class="section">
@@ -399,6 +499,7 @@
             class="proj"
             href="https://findclasses.pasadena.edu/"
             target="_blank"
+            rel="noopener noreferrer"
           >
             <img src="images/class.png" alt="Class Search Portal" />
             <div>
@@ -419,6 +520,7 @@
             class="proj"
             href="https://github.com/ichomchom/Deep-Learning"
             target="_blank"
+            rel="noopener noreferrer"
           >
             <img src="images/transformer.gif" alt="SuperTuxKart AI" />
             <div>
@@ -438,7 +540,7 @@
             class="proj"
             href="https://github.com/ichomchom/Advances-In-Deep-Learning"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
           >
             <img
               src="images/generation_22.gif"
@@ -460,13 +562,13 @@
           </a>
         </div>
 
-        <h2 style="margin-top: 22px">More Projects</h2>
+        <h2 style="margin-top: 3rem">More Projects</h2>
         <div class="grid cols-3">
           <a
             class="card proj"
             href="https://arcane-ravine-32785.herokuapp.com/catalog"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
           >
             <img src="images/fs.png" alt="Inventory System" />
             <div>
@@ -485,7 +587,7 @@
             class="card proj"
             href="https://github.com/ichomchom/Trip-Mobile"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
           >
             <img src="images/android.jpg" alt="Trip Mobile" />
             <div>
@@ -503,7 +605,7 @@
             class="card proj"
             href="https://github.com/ichomchom/Flotsam"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
           >
             <img
               src="https://github.com/ichomchom/Flotsam/raw/master/flotsam.gif"
@@ -519,7 +621,7 @@
             class="card proj"
             href="https://github.com/ichomchom/Indeed-Bot"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
           >
             <img src="images/bot.png" alt="Job Bot" />
             <div>
@@ -537,7 +639,7 @@
             class="card proj"
             href="https://imgur-roulette--ichomchom.repl.co/"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
           >
             <img src="images/flask.jpg" alt="Imgur Roulette" />
             <div>
@@ -552,7 +654,7 @@
             class="card proj"
             href="https://github.com/ichomchom/AzureAD-Scripts"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
           >
             <img src="images/azure.png" alt="Azure AD" />
             <div>
@@ -571,7 +673,7 @@
             class="card proj"
             href="https://github.com/ichomchom/FlappyVR"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
           >
             <img
               src="https://github.com/ichomchom/FlappyVR/raw/master/57a304f80943f8849873ac992bd40445.gif"
@@ -589,7 +691,7 @@
             class="card proj"
             href="https://github.com/ichomchom/saveEmails"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
           >
             <img src="images/python.gif" alt="Save Emails" />
             <div>
@@ -605,7 +707,7 @@
             class="card proj"
             href="https://github.com/ichomchom/DiskUsageScanWin"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
           >
             <img src="images/ps.jpg" alt="Disk Usage Scan" />
             <div>
@@ -809,12 +911,12 @@
           </div>
         </div>
 
-        <div style="margin-top: 20px">
+        <div style="margin-top: 2rem; display: flex; flex-wrap: wrap; gap: 10px;">
           <a
             class="btn"
             href="https://github.com/ichomchom/Deep-Learning"
             target="_blank"
-            style="margin-right: 10px"
+            rel="noopener noreferrer"
           >
             <i class="fab fa-github"></i> Deep Learning
           </a>
@@ -822,7 +924,7 @@
             class="btn"
             href="https://github.com/ichomchom/Advances-In-Deep-Learning"
             target="_blank"
-            style="margin-right: 10px"
+            rel="noopener noreferrer"
           >
             <i class="fab fa-github"></i> Advances in DL
           </a>
@@ -830,7 +932,7 @@
             class="btn"
             href="https://github.com/ichomchom/Natural-Language-Processing"
             target="_blank"
-            style="margin-right: 10px"
+            rel="noopener noreferrer"
           >
             <i class="fab fa-github"></i> NLP
           </a>
@@ -838,7 +940,7 @@
             class="btn primary"
             href="images/NLP_Final_Individual.pdf"
             target="_blank"
-            style="margin-right: 10px"
+            rel="noopener noreferrer"
           >
             <i class="fa-solid fa-file-pdf"></i> NLP Research Paper
           </a>
@@ -902,13 +1004,14 @@
           <a class="chip" href="mailto:phan.huey389@gmail.com"
             ><i class="fa-solid fa-envelope"></i> Email</a
           >
-          <a class="chip" href="https://github.com/ichomchom" target="_blank"
+          <a class="chip" href="https://github.com/ichomchom" target="_blank" rel="noopener noreferrer"
             ><i class="fab fa-github"></i> GitHub</a
           >
           <a
             class="chip"
             href="https://www.linkedin.com/in/huey-phan/"
             target="_blank"
+            rel="noopener noreferrer"
             ><i class="fab fa-linkedin"></i> LinkedIn</a
           >
         </div>
@@ -916,12 +1019,15 @@
     </main>
 
     <footer class="footer container">
-      <small>© <span id="y"></span> Huey Phan</small>
+      <div>
+        <small>© <span id="y"></span> Huey Phan</small>
+        <small style="display: block; margin-top: 0.5rem; color: #6b7280;">Built with vanilla HTML, CSS & JavaScript</small>
+      </div>
       <div class="social">
-        <a href="https://github.com/ichomchom" target="_blank"
+        <a href="https://github.com/ichomchom" target="_blank" rel="noopener noreferrer"
           ><i class="fab fa-github"></i
         ></a>
-        <a href="https://www.linkedin.com/in/huey-phan/" target="_blank"
+        <a href="https://www.linkedin.com/in/huey-phan/" target="_blank" rel="noopener noreferrer"
           ><i class="fab fa-linkedin"></i
         ></a>
       </div>
@@ -929,6 +1035,31 @@
 
     <script>
       document.getElementById("y").textContent = new Date().getFullYear();
+
+      // Mobile menu toggle
+      const hamburger = document.querySelector('.hamburger');
+      const navLinks = document.querySelector('.nav-links');
+
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navLinks.classList.toggle('active');
+      });
+
+      // Close menu when clicking a link
+      document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+          hamburger.classList.remove('active');
+          navLinks.classList.remove('active');
+        });
+      });
+
+      // Close menu when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('.nav-inner')) {
+          hamburger.classList.remove('active');
+          navLinks.classList.remove('active');
+        }
+      });
     </script>
   </body>
 </html>
