@@ -480,6 +480,11 @@
           rel="noopener noreferrer"
           ><i class="fab fa-linkedin"></i> LinkedIn</a
         >
+        <a
+          class="btn primary"
+          href="#publications"
+          ><i class="fa-solid fa-scroll"></i> Papers</a
+        >
       </div>
       <div class="chips">
         <span class="chip">Go</span><span class="chip">React</span
@@ -588,25 +593,6 @@
         <div class="grid cols-3">
           <a
             class="card proj"
-            href="https://arcane-ravine-32785.herokuapp.com/catalog"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src="images/fs.png" alt="Inventory System" />
-            <div>
-              <h3>Inventory System</h3>
-              <p>
-                Track IT assets for CS department; REST API + MongoDB; deployed
-                on Heroku.
-              </p>
-              <div class="tags chips">
-                <span class="chip">Node</span><span class="chip">Express</span
-                ><span class="chip">MongoDB</span>
-              </div>
-            </div>
-          </a>
-          <a
-            class="card proj"
             href="https://github.com/ichomchom/Trip-Mobile"
             target="_blank"
             rel="noopener noreferrer"
@@ -654,21 +640,6 @@
               <div class="tags chips">
                 <span class="chip">Python</span
                 ><span class="chip">Selenium</span>
-              </div>
-            </div>
-          </a>
-          <a
-            class="card proj"
-            href="https://imgur-roulette--ichomchom.repl.co/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src="images/flask.jpg" alt="Imgur Roulette" />
-            <div>
-              <h3>Imgur Roulette</h3>
-              <p>Flask app for random image discovery.</p>
-              <div class="tags chips">
-                <span class="chip">Python</span><span class="chip">Flask</span>
               </div>
             </div>
           </a>
@@ -898,41 +869,6 @@
           </div>
         </div>
 
-        <div class="course-details">
-          <h3>Course Information</h3>
-          <div class="course-list">
-            <div class="course-item">
-              <h4>
-                <i class="fas fa-graduation-cap"></i> Deep Learning (CS 342)
-              </h4>
-              <p>
-                MLPs, CNNs, residual networks, image classification, semantic
-                segmentation, depth estimation
-              </p>
-            </div>
-            <div class="course-item">
-              <h4>
-                <i class="fas fa-graduation-cap"></i> Advances in Deep Learning
-                (CS 395T)
-              </h4>
-              <p>
-                Memory-efficient training, quantization, LoRA, autoregressive
-                models, vision-language models, CLIP
-              </p>
-            </div>
-            <div class="course-item">
-              <h4>
-                <i class="fas fa-graduation-cap"></i> Natural Language
-                Processing (CS 388)
-              </h4>
-              <p>
-                Sentiment analysis, transformers, language modeling, textual
-                entailment, dataset artifacts, debiasing
-              </p>
-            </div>
-          </div>
-        </div>
-
         <div
           style="margin-top: 2rem; display: flex; flex-wrap: wrap; gap: 10px"
         >
@@ -960,14 +896,6 @@
           >
             <i class="fab fa-github"></i> NLP
           </a>
-          <a
-            class="btn primary"
-            href="https://doi.org/10.31224/6210"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <i class="fa-solid fa-scroll"></i> Published Paper
-          </a>
         </div>
       </section>
 
@@ -979,13 +907,45 @@
               <div>
                 <h3 style="margin:0 0 0.4rem">
                   <a
+                    href="https://doi.org/10.31224/6210"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style="color:var(--brand);"
+                  >The Challenge of Debiasing NLI Models: Why Hypothesis-Only Confidence is Insufficient</a>
+                </h3>
+                <div class="meta">Huey Phan &nbsp;·&nbsp; engrXiv &nbsp;·&nbsp; January 2026</div>
+              </div>
+              <a
+                class="btn"
+                href="https://doi.org/10.31224/6210"
+                target="_blank"
+                rel="noopener noreferrer"
+                style="white-space:nowrap; flex-shrink:0;"
+              ><i class="fa-solid fa-scroll"></i> Preprint</a>
+            </div>
+            <p style="margin: 0.8rem 0 0.6rem; color:#c9d3e0;">
+              Investigates hypothesis bias in ELECTRA-small on SNLI, finding a hypothesis-only baseline nearly matches the full model (89.40% vs 89.69%). Identifies error categories from spurious artifacts and shows that ensemble debiasing via hypothesis-only confidence alone is insufficient for robust NLI reasoning.
+            </p>
+            <div class="chips" style="margin-top:0.5rem;">
+              <span class="chip">NLP</span>
+              <span class="chip">NLI</span>
+              <span class="chip">Debiasing</span>
+              <span class="chip">ELECTRA</span>
+              <span class="chip" style="font-family:monospace; font-size:0.78rem;">DOI: 10.31224/6210</span>
+            </div>
+          </div>
+          <div class="item">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:8px;">
+              <div>
+                <h3 style="margin:0 0 0.4rem">
+                  <a
                     href="https://doi.org/10.20944/preprints202605.2102.v1"
                     target="_blank"
                     rel="noopener noreferrer"
                     style="color:var(--brand);"
                   >Predicting ZIP Level Housing Values in Los Angeles County: A Machine Learning Approach Using Public Data</a>
                 </h3>
-                <div class="meta">Huey Phan &nbsp;·&nbsp; Preprints.org &nbsp;·&nbsp; May 2025</div>
+                <div class="meta">Huey Phan &nbsp;·&nbsp; Preprints.org &nbsp;·&nbsp; May 2026</div>
               </div>
               <a
                 class="btn"
