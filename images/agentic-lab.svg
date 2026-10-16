@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" width="320" height="200" role="img" aria-label="Local LLM and agent tooling diagram">
+  <defs>
+    <linearGradient id="bg1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#111c33"/>
+    </linearGradient>
+    <linearGradient id="node" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#60a5fa"/>
+      <stop offset="1" stop-color="#34d399"/>
+    </linearGradient>
+  </defs>
+  <rect width="320" height="200" rx="14" fill="url(#bg1)"/>
+  <g stroke="#3b4a63" stroke-width="1.4" fill="none" stroke-dasharray="4 4">
+    <path d="M160 100 L64 46"/><path d="M160 100 L64 154"/>
+    <path d="M160 100 L258 46"/><path d="M160 100 L258 100"/><path d="M160 100 L258 154"/>
+  </g>
+  <circle cx="160" cy="100" r="30" fill="url(#node)" opacity="0.9"/>
+  <text x="160" y="96" font-family="Inter, sans-serif" font-size="11" font-weight="700" fill="#0b1220" text-anchor="middle">local</text>
+  <text x="160" y="110" font-family="Inter, sans-serif" font-size="11" font-weight="700" fill="#0b1220" text-anchor="middle">LLM</text>
+  <g font-family="Inter, sans-serif" font-size="9.5" fill="#cbd5e1" text-anchor="middle">
+    <rect x="20" y="30" width="88" height="32" rx="8" fill="#1f2937" stroke="#60a5fa" stroke-opacity="0.5"/>
+    <text x="64" y="50">RAG / embeddings</text>
+    <rect x="20" y="138" width="88" height="32" rx="8" fill="#1f2937" stroke="#60a5fa" stroke-opacity="0.5"/>
+    <text x="64" y="158">agent loop</text>
+    <rect x="214" y="30" width="88" height="32" rx="8" fill="#1f2937" stroke="#34d399" stroke-opacity="0.5"/>
+    <text x="258" y="50">MCP tools</text>
+    <rect x="214" y="84" width="88" height="32" rx="8" fill="#1f2937" stroke="#34d399" stroke-opacity="0.5"/>
+    <text x="258" y="104">web search</text>
+    <rect x="214" y="138" width="88" height="32" rx="8" fill="#1f2937" stroke="#34d399" stroke-opacity="0.5"/>
+    <text x="258" y="158">llama.cpp</text>
+  </g>
+</svg>

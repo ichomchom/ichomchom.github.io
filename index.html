@@ -6,11 +6,11 @@
     <title>Huey Phan • Portfolio</title>
     <meta
       name="description"
-      content="Software Engineer & AI/ML specialist building web applications and machine learning systems. Currently at Pasadena City College and pursuing M.S. in AI at UT Austin."
+      content="AI/ML and Software Engineer with 8+ years across software, data, and platform engineering. Building production ML systems, agentic AI, and web applications. Pursuing an M.S. in AI at UT Austin."
     />
     <meta
       name="keywords"
-      content="Software Engineer, AI, Machine Learning, Deep Learning, React, Go, Python, PyTorch, Transformers"
+      content="AI Engineer, Machine Learning, Deep Learning, Agentic AI, RAG, LLM, Software Engineer, React, Go, Python, PyTorch, FastAPI, Transformers"
     />
     <meta name="author" content="Huey Phan" />
 
@@ -20,7 +20,7 @@
     <meta property="og:title" content="Huey Phan • Portfolio" />
     <meta
       property="og:description"
-      content="Software Engineer specializing in AI/ML, React, Go, and Python. Building web applications and deep learning systems."
+      content="AI/ML and Software Engineer building production ML systems, agentic AI, and web applications with Python, Go, React, and PyTorch."
     />
     <meta property="og:site_name" content="Huey Phan Portfolio" />
 
@@ -29,7 +29,7 @@
     <meta name="twitter:title" content="Huey Phan • Portfolio" />
     <meta
       name="twitter:description"
-      content="Software Engineer specializing in AI/ML, React, Go, and Python"
+      content="AI/ML and Software Engineer building production ML systems, agentic AI, and web applications."
     />
 
     <link rel="icon" href="/favicon.png" />
@@ -137,6 +137,15 @@
       .hamburger.active span:nth-child(3) {
         transform: rotate(-45deg) translate(7px, -6px);
       }
+      @media (max-width: 900px) and (min-width: 641px) {
+        .nav-links a.link {
+          padding: 8px 7px;
+          font-size: 0.88rem;
+        }
+        .nav-links a.mid-hide {
+          display: none;
+        }
+      }
       @media (max-width: 640px) {
         .hamburger {
           display: flex;
@@ -235,17 +244,17 @@
         grid-template-columns: 1fr 1fr;
       }
       .grid.cols-3 {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       }
       @media (max-width: 880px) {
-        .grid.cols-2,
-        .grid.cols-3 {
+        .grid.cols-2 {
           grid-template-columns: 1fr;
         }
       }
       .proj {
         display: grid;
-        grid-template-columns: 160px 1fr;
+        grid-template-columns: 150px minmax(0, 1fr);
+        min-width: 0;
         gap: 14px;
         padding: 1.25rem;
         background: rgba(255, 255, 255, 0.03);
@@ -439,32 +448,44 @@
         </button>
         <div class="nav-links">
           <a class="link" href="#about">About</a>
+          <a class="link mid-hide" href="#skills">Skills</a>
           <a class="link" href="#projects">Projects</a>
           <a class="link" href="#ai">AI/ML</a>
           <a class="link" href="#publications">Papers</a>
+          <a class="link mid-hide" href="#presentations">Talks</a>
           <a class="link" href="#experience">Experience</a>
           <a class="link" href="#contact">Contact</a>
+          <a
+            class="link"
+            href="images/Huey_Phan_CV_AI.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Résumé</a
+          >
         </div>
       </div>
     </nav>
 
     <header class="container hero">
-      <p class="kicker">Software Engineer • AI/ML</p>
+      <p class="kicker">AI/ML Engineer • Software Engineer</p>
       <h1>
-        Building useful things with Python, Go, React, and Machine Learning
+        Building production ML systems, agents, and apps with Python, Go, and
+        React
       </h1>
       <p class="lead">
-        Programmer Analyst at Pasadena City College. I ship portals, APIs, data
-        pipelines, and the occasional model. Currently finishing my M.S. in AI
-        at UT Austin focusing on deep learning and vision-language systems.
+        8+ years across software, data, and platform engineering. Programmer
+        Analyst at Pasadena City College, where I ship portals, APIs, data
+        pipelines, and ML services. Pursuing an M.S. in Artificial Intelligence
+        at UT Austin, working on transformers, generative models, and applied
+        deep learning.
       </p>
       <div class="cta">
         <a
           class="btn primary"
-          href="images/Huey_Phan_CV.pdf"
+          href="images/Huey_Phan_CV_AI.pdf"
           target="_blank"
           rel="noopener noreferrer"
-          ><i class="fa-solid fa-file"></i> Resume (PDF)</a
+          ><i class="fa-solid fa-file-arrow-down"></i> Résumé (PDF)</a
         >
         <a
           class="btn"
@@ -487,9 +508,11 @@
         >
       </div>
       <div class="chips">
-        <span class="chip">Go</span><span class="chip">React</span
-        ><span class="chip">Python</span><span class="chip">GraphQL</span
-        ><span class="chip">Docker</span><span class="chip">Oracle</span>
+        <span class="chip">Python</span><span class="chip">PyTorch</span
+        ><span class="chip">LLM Inference</span><span class="chip">RAG</span
+        ><span class="chip">Agentic AI</span><span class="chip">FastAPI</span
+        ><span class="chip">Go</span><span class="chip">React</span
+        ><span class="chip">AWS</span><span class="chip">Docker</span>
       </div>
     </header>
 
@@ -497,10 +520,10 @@
       <section id="about" class="section">
         <h2>About</h2>
         <p>
-          I design and build web applications end-to-end: React frontends,
-          Go/Python backends, and data services that integrate with Oracle and
-          Salesforce. I enjoy turning messy systems into clean APIs and
-          dashboards that people actually use.
+          I build systems end-to-end: models behind FastAPI services, Go and
+          Python backends, React frontends, and the data plumbing underneath —
+          Oracle, AWS, Docker, and Linux. I enjoy turning messy systems into
+          clean APIs and dashboards that people actually use.
         </p>
         <p>
           My approach combines practical software engineering with
@@ -514,14 +537,137 @@
           What excites me most is the intersection: applying ML research to real
           problems, optimizing models for production constraints, and building
           systems that make complex technology accessible. Whether it's
-          fine-tuning a language model with LoRA or designing a GraphQL
-          middleware layer, I focus on solutions that work reliably at scale.
+          fine-tuning a language model with LoRA, standing up a self-hosted LLM
+          stack with RAG and tool use, or designing a GraphQL middleware layer,
+          I focus on solutions that work reliably at scale.
         </p>
+      </section>
+
+      <section id="skills" class="section">
+        <h2>Skills &amp; Education</h2>
+        <div class="grid cols-3">
+          <div class="item">
+            <h3 style="margin: 0 0 0.6rem">
+              <i class="fas fa-brain" style="color: var(--brand)"></i> Machine
+              Learning
+            </h3>
+            <div class="tech-tags">
+              <span class="chip">PyTorch</span><span class="chip">scikit-learn</span
+              ><span class="chip">LightGBM</span
+              ><span class="chip">TensorFlow / TFLite</span
+              ><span class="chip">pandas</span><span class="chip">NumPy</span>
+            </div>
+          </div>
+          <div class="item">
+            <h3 style="margin: 0 0 0.6rem">
+              <i class="fas fa-wand-magic-sparkles" style="color: var(--brand)"></i>
+              Generative AI
+            </h3>
+            <div class="tech-tags">
+              <span class="chip">Transformers</span
+              ><span class="chip">Hugging Face</span
+              ><span class="chip">LoRA / PEFT</span
+              ><span class="chip">Embeddings</span><span class="chip">RAG</span
+              ><span class="chip">Quantization</span
+              ><span class="chip">llama.cpp</span
+              ><span class="chip">AnythingLLM</span>
+            </div>
+          </div>
+          <div class="item">
+            <h3 style="margin: 0 0 0.6rem">
+              <i class="fas fa-robot" style="color: var(--brand)"></i> AI Systems
+            </h3>
+            <div class="tech-tags">
+              <span class="chip">AWS Bedrock Agents</span
+              ><span class="chip">Bedrock Guardrails</span
+              ><span class="chip">MCP tools</span><span class="chip">SearxNG</span
+              ><span class="chip">Firecrawl</span><span class="chip">Tavily</span
+              ><span class="chip">Exa</span>
+            </div>
+          </div>
+          <div class="item">
+            <h3 style="margin: 0 0 0.6rem">
+              <i class="fas fa-code" style="color: var(--brand)"></i> Software
+            </h3>
+            <div class="tech-tags">
+              <span class="chip">Python</span><span class="chip">Go</span
+              ><span class="chip">JavaScript / TypeScript</span
+              ><span class="chip">FastAPI</span><span class="chip">React</span
+              ><span class="chip">Streamlit</span><span class="chip">REST</span
+              ><span class="chip">GraphQL</span>
+            </div>
+          </div>
+          <div class="item">
+            <h3 style="margin: 0 0 0.6rem">
+              <i class="fas fa-cloud" style="color: var(--brand)"></i> Cloud &amp;
+              Data
+            </h3>
+            <div class="tech-tags">
+              <span class="chip">AWS</span><span class="chip">Docker</span
+              ><span class="chip">CI/CD</span><span class="chip">Linux / RHEL</span
+              ><span class="chip">Ansible</span><span class="chip">Oracle</span
+              ><span class="chip">SQL</span>
+            </div>
+          </div>
+          <div class="item">
+            <h3 style="margin: 0 0 0.6rem">
+              <i class="fas fa-graduation-cap" style="color: var(--brand)"></i>
+              Education
+            </h3>
+            <p style="margin: 0.4rem 0; color: #c9d3e0">
+              <strong style="color: #fff">M.S. Artificial Intelligence</strong>
+              <br />UT Austin · Jan 2025 – May 2027
+            </p>
+            <p style="margin: 0.8rem 0 0; color: #c9d3e0">
+              <strong style="color: #fff">B.S. Computer Science</strong>
+              <br />CSU San Bernardino · Sept 2014 – Dec 2017
+            </p>
+          </div>
+        </div>
       </section>
 
       <section id="projects" class="section">
         <h2>Featured Projects</h2>
         <div class="grid cols-2">
+          <div class="proj">
+            <img src="images/agentic-lab.svg" alt="Agentic AI and local LLM lab" />
+            <div>
+              <h3>Agentic AI &amp; Local LLM Systems Lab</h3>
+              <p>
+                Self-hosted AI environment: llama.cpp with Gemma-family models for
+                private inference, RAG, and agentic workflows. AnythingLLM, Qwen3
+                embeddings, and agent tooling (Hermes, OpenCode, Pi Agent) wired to
+                local endpoints, with SearxNG, Firecrawl, Tavily, Brave, and Exa
+                exposed as MCP-style tools.
+              </p>
+              <div class="tags chips">
+                <span class="chip">llama.cpp</span><span class="chip">RAG</span
+                ><span class="chip">MCP</span><span class="chip">Agents</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="proj">
+            <img
+              src="images/bedrock-pathways.svg"
+              alt="AWS Bedrock student pathways prototype"
+            />
+            <div>
+              <h3>AWS Bedrock Student Pathways Prototype</h3>
+              <p>
+                Generative-AI prototype that helps community-college students
+                explore programs and career pathways: Bedrock Agents with S3
+                knowledge sources, Lambda-backed actions, and Bedrock Guardrails
+                for retrieval, deterministic logic, and safety controls.
+              </p>
+              <div class="tags chips">
+                <span class="chip">AWS Bedrock</span
+                ><span class="chip">Streamlit</span
+                ><span class="chip">Lambda</span><span class="chip">S3</span>
+              </div>
+            </div>
+          </div>
+
           <a
             class="proj"
             href="https://findclasses.pasadena.edu/"
@@ -1001,39 +1147,106 @@
         </div>
       </section>
 
+      <section id="presentations" class="section">
+        <h2>Presentations</h2>
+        <div class="timeline grid">
+          <div class="item">
+            <div
+              style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:8px;"
+            >
+              <div style="flex:1; min-width:0;">
+                <h3 style="margin:0 0 0.4rem">UT REAL Health AI Symposium</h3>
+                <div class="meta">
+                  Poster · 2026 · “Comparing CNN, Recurrent, Hybrid, and
+                  Transformer Models for Multi-Label ECG Classification on
+                  PTB-XL”
+                </div>
+              </div>
+              <span class="chip" style="white-space:nowrap; flex-shrink:0;">
+                <i class="fa-solid fa-chalkboard-user"></i> Accepted
+              </span>
+            </div>
+          </div>
+          <div class="item">
+            <div
+              style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:8px;"
+            >
+              <div style="flex:1; min-width:0;">
+                <h3 style="margin:0 0 0.4rem">
+                  California Heart Rhythm Symposium
+                </h3>
+                <div class="meta">
+                  Poster · 2026 · “Comparing CNN, Recurrent, Hybrid, and
+                  Transformer Models for Multi-Label ECG Classification on
+                  PTB-XL”
+                </div>
+              </div>
+              <span class="chip" style="white-space:nowrap; flex-shrink:0;">
+                <i class="fa-solid fa-chalkboard-user"></i> Accepted
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section id="experience" class="section">
         <h2>Experience</h2>
         <div class="timeline grid">
           <div class="card item">
             <h3>Programmer Analyst • Pasadena City College</h3>
-            <div class="meta">Sep 2021 – Present • Pasadena, CA</div>
+            <div class="meta">
+              ML / Software / Platform Engineering<br />Sep 2021 – Present •
+              Pasadena, CA
+            </div>
             <ul>
               <li>
-                Led React + GraphQL portal used by 40k+ students and staff.
+                Built and deployed a production ML pipeline (Python, LightGBM,
+                scikit-learn) forecasting course enrollment and cancellation risk
+                from ~104K Oracle records over 10 years — 17% lower section-level
+                prediction error and at-risk detection ROC-AUC up from 0.80 to
+                0.95 versus the historical baseline, using time-based splits to
+                avoid data leakage.
               </li>
               <li>
-                Designed Go middleware for vendor APIs; improved throughput and
-                reliability.
+                Designed the model-serving architecture: FastAPI behind an
+                existing Go backend, exposing predictions through REST APIs to a
+                React scheduling application.
               </li>
               <li>
-                Streamlined Oracle data workflows; measurable performance gains.
+                Built and maintained Go services supporting a student platform
+                with 40K+ concurrent users, with Docker deployment and CI/CD
+                automation.
               </li>
               <li>
-                Built a LightGBM enrollment/cancellation-risk forecasting pipeline over
-                10 years of Oracle records, improving at-risk detection from 0.80 to
-                0.95 ROC-AUC, served via a FastAPI microservice to the scheduling app.
+                Developed a class-schedule platform (React on AWS Amplify, Go API
+                on EC2) with ALB/TLS, Apache reverse proxying, and application
+                caching; redesigned caching from an incremental comparison model
+                to a three-minute snapshot refresh, eliminating timeouts and
+                stale data during registration peaks.
+              </li>
+              <li>
+                Python and Bash automation for scheduled data exchange with 5+
+                external vendors (transfer, validation, retries, monitoring), and
+                Oracle/GraphQL query tuning that cut latency by ~60%.
               </li>
             </ul>
           </div>
           <div class="card item">
             <h3>Software Developer • Cloudsquare</h3>
-            <div class="meta">Jan 2020 – Sep 2021</div>
+            <div class="meta">Jan 2020 – Sep 2021 • Woodland Hills, CA</div>
             <ul>
-              <li>Built custom Salesforce apps (Apex, LWC, Visualforce).</li>
               <li>
-                Integrated Microsoft Graph, CLEAR, Plaid, Experian, Equifax.
+                Built a real-time edge-AI face-detection pipeline with TensorFlow
+                Lite on Raspberry Pi hardware for client demos and prototypes.
               </li>
-              <li>Prototype: Raspberry Pi + TPU face detection system.</li>
+              <li>
+                Backend integrations for enterprise applications using Microsoft
+                Graph, Plaid, Reuters, and Salesforce APIs.
+              </li>
+              <li>
+                Delivered across frontend, backend, integration, and deployment
+                layers for enterprise client projects.
+              </li>
             </ul>
           </div>
           <div class="card item">
@@ -1041,17 +1254,32 @@
             <div class="meta">Jul 2018 – Jan 2020 • Los Angeles, CA</div>
             <ul>
               <li>
-                Improved DB performance by ~60% with indexing and query tuning.
+                Optimized Oracle query execution plans, removing unnecessary
+                table scans and improving retrieval performance by ~60%.
               </li>
-              <li>Governance policies; BI reporting & data extraction.</li>
+              <li>
+                Developed Python ETL pipelines automating data transformation,
+                governance, validation, and integrity checks.
+              </li>
             </ul>
           </div>
           <div class="card item">
             <h3>Junior System Administrator • CSU San Bernardino</h3>
-            <div class="meta">Jun 2017 – Dec 2017</div>
+            <div class="meta">Jun 2017 – Dec 2017 • San Bernardino, CA</div>
             <ul>
-              <li>Linux/Unix admin; automation via Ansible and Docker.</li>
-              <li>Built Node/Express/Mongo tools for lab operations.</li>
+              <li>
+                Administered Linux/Unix and Windows infrastructure supporting
+                campus computer labs serving 1,000+ students.
+              </li>
+              <li>
+                Automated administration and deployment with Ansible, Bash,
+                PowerShell, and Docker, cutting repetitive provisioning from
+                hours to minutes.
+              </li>
+              <li>
+                Supported Samba, Active Directory, monitoring, backup, and
+                patching, and wrote documentation and runbooks for support staff.
+              </li>
             </ul>
           </div>
         </div>
@@ -1076,6 +1304,13 @@
             target="_blank"
             rel="noopener noreferrer"
             ><i class="fab fa-linkedin"></i> LinkedIn</a
+          >
+          <a
+            class="chip"
+            href="images/Huey_Phan_CV_AI.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><i class="fa-solid fa-file-arrow-down"></i> Résumé (PDF)</a
           >
         </div>
       </section>
